@@ -1,12 +1,251 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Mazidul Islam's Portfolio</title>
+	<link rel="shortcut icon" type="image/png" href="./resources/my_profile.png">
+	<!----css---->
+	<link rel="stylesheet" href="styles/owl.carousel.min.css">
+	<link rel="stylesheet" href="styles/bootstrap.min.css">
+	<link rel="stylesheet" href="styles/index.css">
+	<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
 </head>
+
 <body>
-    Hello world, Adding sample index page
+
+	<!------Preloader Start--------->
+	<div class="preloader">
+		<div></div>
+	</div>
+	<!------Preloader End--------->
+
+	<!----Navbar Start---->
+	<nav class="navbar navbar-expand-lg fixed-top">
+		<div class="container">
+			<!-- Brand -->
+			<a class="navbar-brand" href="/">
+				<div class="cube">
+					<div class="top"></div>
+					<div>
+						<span style="--i:0"></span>
+						<span style="--i:1"></span>
+						<span style="--i:2"></span>
+						<span style="--i:3"></span>
+					</div>
+				</div>
+			</a>
+
+			<!-- Toggler/collapsibe Button -->
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+				<i class='bx bx-menu'></i>
+			</button>
+
+			<!-- Navbar links -->
+			<div class="collapse navbar-collapse" id="collapsibleNavbar">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item">
+						<a class="nav-link active" data-scroll-nav="0" href="#"><i class='bx bx-home-alt'></i> Home</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" data-scroll-nav="1" href="#"><i class='bx bx-user'></i> About Me</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" data-scroll-nav="2" href="#"><i class='bx bx-carousel'></i> Projects</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" data-scroll-nav="3" href="#"><i class='bx bx-envelope'></i> Contact</a>
+					</li>
+
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<!----Navbar End------>
+
+	<!----Home Section Start ----->
+	<section class="home d-flex align-items-center" id="home" data-scroll-index="0">
+		<div class="effect-wrap">
+			<i class="fas fa-plus effect effect-1"></i>
+			<i class="fas fa-plus effect effect-2"></i>
+			<i class="fas fa-circle-notch effect effect-3"></i>
+		</div>
+		<div class="container">
+			<div class="home-text">
+				<h1><span>Hi,</span> I'm Mazidul Islam</h1>
+				<!-- <h1><span>I'm Java Backend Developer</span></h1> -->
+				<div class="wrapper">
+					<h1 class="static-text">Skilled in </h1>
+					<ul class="skills">
+						<li><span>Backend development</span></li>
+						<li><span>Spring Boot</span></li>
+						<li><span>Hibernet</span></li>
+						<li><span>MySQL</span></li>
+					</ul>
+				</div>
+				<div class="home-btn">
+					<a href="https://drive.google.com/file/d/1aRfbd6CXvFbMPEzLcNeNNlgqAV-HFOUr/view?usp=sharing"
+						target="_blank" class="btn btn-1">Resume</a>
+				</div>
+			</div>
+			<div class="home-img">
+				<div class="circle">
+				</div>
+				<img src="resources/my_profile.png" alt="profile">
+			</div>
+		</div>
+		</div>
+	</section>
+	<!----Home Section End ----->
+
+	<!----About Me Section Start----->
+	<section class="about-me section-padding" id="about_me" data-scroll-index="1">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-lg-8">
+					<div class="section-title">
+						<h2>About <span>Me</span></h2>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+
+			</div>
+		</div>
+	</section>
+	<!----About Me Section End----->
+
+	<!-------Projects Section Start------>
+	<section class="projects section-padding" id="projects" data-scroll-index="2">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-lg-8">
+					<div class="section-title">
+						<h2><span>Projects</span></h2>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="owl-carousel screenshots-carousel">
+					<!-- <div class="screenshot-item">
+						<img src="img/app-screenshots/screenshot1.jpeg" alt="screenshot">
+					</div>
+					<div class="screenshot-item">
+						<img src="img/app-screenshots/screenshot2.jpeg" alt="screenshot">
+					</div>
+					<div class="screenshot-item">
+						<img src="img/app-screenshots/screenshot3.jpeg" alt="screenshot">
+					</div>
+					<div class="screenshot-item">
+						<img src="img/app-screenshots/screenshot4.jpeg" alt="screenshot">
+					</div> -->
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-------Projects Section End------>
+
+	<!---------Contact Section Start--------->
+	<section class="contact section-padding" data-scroll-index="3">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-lg-8">
+					<div class="section-title">
+						<h2>get in <span>touch</span></h2>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-4 col-md-5">
+					<div class="contact-info">
+						<h3>For Any Queries and Support</h3>
+						<div class="contact-info-item">
+							<i class='bx bx-navigation'></i>
+							<h4>Location</h4>
+							<p>Barpeta Road, Assam</p>
+						</div>
+						<div class="contact-info-item email">
+							<i class='bx bx-envelope'></i>
+							<h4>Write to me at</h4>
+							<p><a href="mailto:islammazidul1369@gmail.com">islammazidul1369@gmail.com</a></p>
+						</div>
+						<div class="contact-info-item">
+							<i class='bx bx-phone'></i>
+							<h4>Call me on</h4>
+							<p>+91 6002601821</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-8 col-md-7">
+					<div class="contact-form">
+						<form>
+							<div class="row">
+								<div class="col-lg-6">
+									<div class="form-group">
+										<input id="name" type="text" placeholder="Your Name" class="form-control">
+									</div>
+								</div>
+								<div class="col-lg-6">
+									<div class="form-group">
+										<input id="email" type="text" placeholder="Your Email" class="form-control">
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-lg-12">
+									<div class="form-group">
+										<input id="phone" type="text" placeholder="Your Phone (optional)"
+											class="form-control">
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-lg-12">
+									<div class="form-group">
+										<textarea id="message" placeholder="Your Message (10-500 char)"
+											class="form-control"></textarea>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-lg-12">
+									<button id="submit" type="submit" class="btn btn-2">Send Message</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!---------Contact Section End---------->
+
+	<!--------Footer Section Start--------->
+	<footer class="footer">
+		<p class="copyright-text">Copyright &copy; Designed and created by <a href="https://github.com/mazidul36i"
+				target="_blank">Mazidul Islam</a></p>
+	</footer>
+	<!--------Footer Section End---------->
+
+	<!--------Toggle Theme Start - light & dark mode----------->
+	<div class="toggle-theme">
+		<i class="bx"></i>
+	</div>
+	<!--------Toggle Theme End------------>
+
+
+	<script src="scripts/jquery.min.js"></script>
+	<!---bootstrap js---->
+	<script src="scripts/bootstrap.min.js"></script>
+	<!---owl carousel js---->
+	<script src="scripts/owl.carousel.min.js"></script>
+	<!---ScrollIt js---->
+	<script src="scripts/scrollIt.min.js"></script>
+	<!-------index js------>
+	<script src="scripts/index.js"></script>
+
 </body>
+
 </html>
