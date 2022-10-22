@@ -3,6 +3,7 @@
 /*--------------
  Global CSS
 ----------------*/
+
 :root {
     --main-color: #7857fe;
     --color-1: #e91e63;
@@ -27,6 +28,8 @@ body {
     overflow-x: hidden;
     background-color: white;
     line-height: 1.5;
+    max-width: 1700px;
+    margin: 0 auto;
 }
 body.dark {
     background-color: var(--bg-dark);
@@ -217,7 +220,8 @@ ul {
 
 /*-----------------
  Preloader Section
--------------------*/ /*
+ -------------------*/
+/*
  .preloader{
  	position: fixed;
  	left: 0;
@@ -264,7 +268,7 @@ ul {
  	border-radius: 50%;
  	border-top-color: var(--color-3);
  	animation: spin 1.5s linear infinite;
- }*/
+}*/
 
 /*-----------------
  Navbar Section
@@ -386,39 +390,48 @@ ul {
  Home Section
 -------------------*/
 .home {
-    min-height: max-content;
-    padding: 100px 0;
-    background-color: var(--main-to-dark-color);
-    border-radius: 0 0 200px 0;
     position: relative;
-    z-index: 1;
+    height: 100vh;
+    padding: 100px 0 100px;
+    background: linear-gradient(rgba(7, 7, 7, 0.7), rgba(0, 0, 0, 0.4)),
+        url("../resources/bg.jpg") no-repeat left top;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
     overflow-x: hidden;
+    z-index: 1;
+    background-size: cover;
 }
+.home > svg {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100px;
+    width: 100%;
+    border: 1px red solid;
+}
+
 body.dark .home {
     background-color: var(--black-100);
 }
-.home .container {
-    display: grid;
-    grid-template-columns: 60% 40%;
-}
-.home .home-img {
-    text-align: center;
-}
-
-.home-text h1 {
-    font-size: 45px;
-    font-weight: 700;
-    margin: 0 0 20px;
+.home .container p {
+    margin-left: 10px;
+    font-size: 24px;
+    font-weight: 400;
     color: #ffffff;
+    text-shadow: var(--main-color) 0 0 6px;
 }
-.home-text h1 span{
-    font-size: 30px;
-    font-weight: 500;
+.home .container h1 {
+    font-size: 50px;
+    font-weight: 600;
     color: #eee;
+    margin-top: 0;
+    text-shadow: var(--main-color) 0 0 6px;
 }
 
-.home-text .wrapper {
-     display: inline-flex;
+/* .home-text .wrapper {
+    display: inline-flex;
 }
 .wrapper .static-text {
     color: white;
@@ -434,7 +447,7 @@ body.dark .home {
 }
 .wrapper .skills li {
     position: relative;
-    color: #FC6D6D;
+    color: #fc6d6d;
     font-size: 25px;
     font-weight: 400;
     top: 0;
@@ -445,7 +458,7 @@ body.dark .home {
         top: -140px;
     }
 }
-.wrapper .skills li span{
+.wrapper .skills li span {
     position: relative;
 }
 .wrapper .skills li span::after {
@@ -455,18 +468,19 @@ body.dark .home {
     height: 100%;
     width: 100%;
     background: var(--main-to-dark-color);
-    border-left: 2px solid #FC6D6D;
+    border-left: 2px solid #fc6d6d;
     animation: typing 5s ease infinite;
 }
 body.dark .wrapper .skills li span::after {
     background: var(--black-100);
 }
 @keyframes typing {
-    80%, 90% {
+    80%,
+    90% {
         left: 100%;
         margin: 0 -12px 0 12px;
     }
-}
+} */
 
 .home .home-btn {
     margin-top: 20px;
@@ -478,45 +492,29 @@ body.dark .wrapper .skills li span::after {
     animation: none;
     box-shadow: var(--shadow-black-300);
 }
-.home-img img {
-    max-width: 250px;
-    width: 100%;
-    box-shadow: var(--shadow-black-100);
-    border-radius: 50%;
-}
-.home-img {
-    position: relative;
-}
-.home-img .circle {
-    position: absolute;
-    z-index: 1;
-    height: 320px;
-    width: 320px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 50%;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-.home-img .circle::before {
-    content: "";
-    position: absolute;
-    height: 35px;
-    width: 35px;
-    background-color: rgba(255, 255, 255, 0.4);
-    border-radius: 50%;
-    left: 30px;
-    top: 30px;
-    transform-origin: 130px 130px;
-    animation: spin_01 10s linear infinite;
-}
 
 /*----------------------- 
  About Me
 -------------------------*/
-/* .about-me {
-    background-color: var(--black-100);
-} */
+.about-me .row:nth-child(2) {
+    display: grid;
+    grid-template-columns: repeat(3);
+}
+.about-me .profile {
+    height: 240px;
+    width: 240px;
+    margin: auto;
+    padding-bottom: 1px;
+    border: 4px var(--main-to-dark-color) solid;
+    border-radius: 50%;
+}
+.about-me .about-text {
+    margin-top: 20px;
+}
+body.dark .about-me .about-text p,
+body.dark .about-me .about-text h2 {
+    color: white;
+}
 
 /*----------------------- 
  Projects
@@ -731,7 +729,7 @@ body.dark .wrapper .skills li span::after {
 ------------------------*/
 @media (max-width: 991px) {
     .home {
-        padding: 100px 0 50px;
+        padding: 100px 0 120px;
     }
     .home .container {
         grid-template-columns: repeat(1, 1fr);
@@ -817,7 +815,7 @@ body.dark .wrapper .skills li span::after {
         max-width: 250px;
         width: 90%;
     }
-    .wrapper .skills li ,
+    .wrapper .skills li,
     .wrapper .static-text {
         font-size: 20px;
     }
