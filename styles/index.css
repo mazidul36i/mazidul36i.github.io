@@ -274,6 +274,8 @@ ul {
  Navbar Section
 -------------------*/
 .navbar {
+    max-width: 1700px;
+    margin: auto;
     background-color: transparent;
     padding: 20px 0;
     transition: all 0.5s ease;
@@ -429,59 +431,6 @@ body.dark .home {
     margin-top: 0;
     text-shadow: var(--main-color) 0 0 6px;
 }
-
-/* .home-text .wrapper {
-    display: inline-flex;
-}
-.wrapper .static-text {
-    color: white;
-    font-size: 25px;
-    font-weight: 400;
-    line-height: 35px;
-}
-.wrapper .skills {
-    margin-left: 15px;
-    height: 35px;
-    line-height: 35px;
-    overflow: hidden;
-}
-.wrapper .skills li {
-    position: relative;
-    color: #fc6d6d;
-    font-size: 25px;
-    font-weight: 400;
-    top: 0;
-    animation: slide 20s steps(4) infinite;
-}
-@keyframes slide {
-    100% {
-        top: -140px;
-    }
-}
-.wrapper .skills li span {
-    position: relative;
-}
-.wrapper .skills li span::after {
-    position: absolute;
-    left: 0;
-    content: "";
-    height: 100%;
-    width: 100%;
-    background: var(--main-to-dark-color);
-    border-left: 2px solid #fc6d6d;
-    animation: typing 5s ease infinite;
-}
-body.dark .wrapper .skills li span::after {
-    background: var(--black-100);
-}
-@keyframes typing {
-    80%,
-    90% {
-        left: 100%;
-        margin: 0 -12px 0 12px;
-    }
-} */
-
 .home .home-btn {
     margin-top: 20px;
 }
@@ -496,24 +445,80 @@ body.dark .wrapper .skills li span::after {
 /*----------------------- 
  About Me
 -------------------------*/
-.about-me .row:nth-child(2) {
-    display: grid;
-    grid-template-columns: repeat(3);
+.about-me .row-2 {
+    display: flex;
+    gap: 40px;
 }
 .about-me .profile {
     height: 240px;
     width: 240px;
     margin: auto;
-    padding-bottom: 1px;
     border: 4px var(--main-to-dark-color) solid;
     border-radius: 50%;
 }
-.about-me .about-text {
-    margin-top: 20px;
+body.dark .about-me .profile {
+    border-color: var(--black-900);
 }
-body.dark .about-me .about-text p,
-body.dark .about-me .about-text h2 {
-    color: white;
+.about-me .about-text {
+    display: flex;
+    flex-direction: column;
+}
+.about-me .about-text h2 {
+    margin-top: auto;
+    color: var(--main-color);
+}
+.about-me .about-text p {
+    margin-bottom: auto;
+    color: var(--black-400);
+}
+
+.about-text .wrapper {
+    display: inline-flex;
+}
+.wrapper .static-text {
+    color: var(--black-900);
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 30px;
+}
+.wrapper .skills {
+    margin-left: 10px;
+    height: 30px;
+    line-height: 30px;
+    overflow: hidden;
+}
+.wrapper .skills li {
+    position: relative;
+    color: var(--color-3);
+    font-size: 20px;
+    font-weight: 400;
+    top: 0;
+    animation: slide 20s steps(4) infinite;
+}
+.wrapper .skills li span {
+    position: relative;
+}
+.wrapper .skills li span::after {
+    position: absolute;
+    left: 0;
+    content: "";
+    height: 100%;
+    width: 100%;
+    background: var(--black-000);
+    border-left: 2px solid var(--color-3);
+    animation: typing 5s ease infinite;
+}
+@keyframes slide {
+    100% {
+        top: -120px;
+    }
+}
+@keyframes typing {
+    80%,
+    90% {
+        left: 100%;
+        margin: 0 -12px 0 12px;
+    }
 }
 
 /*----------------------- 
@@ -522,7 +527,51 @@ body.dark .about-me .about-text h2 {
 .projects {
     background-color: var(--black-100);
 }
+.projects-carousel .project-item {
+    display: flex;
+    margin: 8px;
+    background-color: var(--black-000);
+    border-radius: 12px;
+    box-shadow: rgba(0, 0, 0, 0.4) 0 0 8px;
+    overflow: hidden;
+}
+.project-item .image-section {
+    padding: 10px;
+    width: 55%;
+}
+.project-item .image-section img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: rgba(0, 0, 0, 0.3) 0 0 6px;
+}
+.project-item .image-section .tech-stacks {
+    border: 1px blue solid;
+    margin-top: 10px;
+    height: 50px;
+}
 
+.project-item .project-info {
+    width: 45%;
+    padding: 12px;
+    color: var(--black-900);
+}
+.project-item .project-info .links {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+.project-item .project-info .links a {
+    text-decoration: none;
+    color: var(--black-400);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 15px;
+}
+.project-item .project-info .links a i {
+    color: var(--black-900);
+    font-size: 20px;
+}
 /*----------------------- 
  Team Section
 -------------------------*/
@@ -728,16 +777,6 @@ body.dark .about-me .about-text h2 {
  Responsive Section
 ------------------------*/
 @media (max-width: 991px) {
-    .home {
-        padding: 100px 0 120px;
-    }
-    .home .container {
-        grid-template-columns: repeat(1, 1fr);
-    }
-    .home .home-img {
-        padding: 50px 0;
-        grid-area: 1/1/2/2;
-    }
     .navbar .navbar-collapse {
         transition: all 0.4s ease;
         margin-top: 12px;
@@ -765,18 +804,22 @@ body.dark .about-me .about-text h2 {
     .navbar.navbar-shrink .navbar-nav {
         background-color: var(--main-to-dark-color);
     }
-    .home-img .circle {
-        height: 320px;
-        width: 320px;
+
+    .home {
+        padding: 100px 0 120px;
     }
-    .home-img .circle::before {
-        left: 18px;
-        top: 18px;
-        transform-origin: 142px 142px;
+
+    .about-me .row-2 {
+        flex-direction: column;
     }
-    .home-text h1 {
-        font-size: 40px;
+
+    .projects-carousel .project-item {
+        flex-direction: column;
     }
+    .projects-carousel .project-item > * {
+        width: 100%;
+    }
+
     .contact-info-item.email p a {
         font-size: 14px;
     }
@@ -785,9 +828,6 @@ body.dark .about-me .about-text h2 {
     }
 }
 @media (max-width: 767px) {
-    .home-text {
-        margin-bottom: 80px;
-    }
     .contact-form {
         margin-top: 20px;
     }
@@ -801,19 +841,6 @@ body.dark .about-me .about-text h2 {
 @media (max-width: 575px) {
     .cube {
         margin-left: 20px;
-    }
-    .home-text h1 span {
-        font-size: 24px;
-    }
-    .home-text h1 {
-        font-size: 30px;
-    }
-    .home-text p {
-        font-size: 16px;
-    }
-    .home-img img {
-        max-width: 250px;
-        width: 90%;
     }
     .wrapper .skills li,
     .wrapper .static-text {
