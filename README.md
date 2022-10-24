@@ -10,7 +10,7 @@
 Aspiring Java Backend Developer. Problem-solving mindset with a positive attitude and a willingness to learn new technologies. I am looking for a hopeful role in a company where I can utilize my skills and experience to contribute to the success of the team and the organization.
 
 - 👩‍💻 I’m currently working on **Java Backend Projects**
-- 💎 I’m currently learning **Java Backend Skills**
+- 💎 I’m currently learning **SQL**
 - 🔎 Some of my outstanding projects are available in my [**Portfolio**](https://mazidul36i.github.io)
 - 📫 How to reach me **islammazidul1369@gmail.com**
 
