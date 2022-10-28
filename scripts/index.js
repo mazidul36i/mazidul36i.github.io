@@ -56,7 +56,8 @@ function updateIcon() {
 $(".projects-carousel").owlCarousel({
     loop: true,
     margin: 0,
-    // autoplay: true,
+    autoplay: true,
+    autoplayHoverPause:true,
     responsiveClass: true,
     responsive: {
         0: {

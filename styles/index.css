@@ -16,6 +16,7 @@
     --shadow-black-100: 0 5px 15px rgba(0, 0, 0, 0.1);
     --shadow-black-300: 0 5px 15px rgba(0, 0, 0, 0.3);
     --black-900: #000000;
+    --black-700: #2b2c2e;
     --black-400: #555555;
     --black-100: #f7f7f7;
     --black-000: #ffffff;
@@ -40,7 +41,8 @@ body.dark {
     --dark-to-main-color: var(--main-color);
     --shadow-black-100: var(--shadow-black-300);
     --black-alpha-100: rgba(255, 255, 255, 0.05);
-    --black-900: #ffffff;
+    --black-900: #eff5ff;
+    --black-700: #eceff3;
     --black-400: #bbbbbb;
 }
 * {
@@ -400,18 +402,20 @@ ul {
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
-    overflow-x: hidden;
+    overflow: hidden;
     z-index: 1;
     background-size: cover;
 }
 .home > svg {
     position: absolute;
-    bottom: 0;
+    bottom: -45px;
     left: 0;
     right: 0;
     height: 100px;
     width: 100%;
-    border: 1px red solid;
+}
+.path {
+    fill: var(--black-000);
 }
 
 body.dark .home {
@@ -522,6 +526,41 @@ body.dark .about-me .profile {
 }
 
 /*----------------------- 
+ Skills
+ -------------------------*/
+.skills h3 {
+    color: var(--black-400);
+    margin-top: 10px;
+    font-size: 24px;
+}
+.skills .tools_and_tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+}
+.skills .tools_and_tech img,
+.tech-stacks img {
+    width: 100px;
+    padding: 10px;
+    background-color: rgb(238, 241, 248);
+    border-radius: 6px;
+    transition: all 0.4s cubic-bezier(0.38, 0.37, 0.17, 0.83);
+}
+.skills .tools_and_tech img:hover,
+.tech-stacks img:hover {
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.3), 0 0 5px rgba(0, 0, 0, 0.527);
+}
+body.dark .skills .tools_and_tech img {
+    background-color: rgb(36, 36, 46);
+}
+body.dark .skills .tools_and_tech img:hover,
+body.dark .tech-stacks img:hover {
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.3),
+        0 0 5px rgba(255, 255, 255, 0.527);
+}
+
+/*----------------------- 
  Projects
  -------------------------*/
 .projects {
@@ -539,15 +578,28 @@ body.dark .about-me .profile {
     padding: 10px;
     width: 55%;
 }
-.project-item .image-section img {
+.project-item .image-section > img {
     width: 100%;
     border-radius: 8px;
     box-shadow: rgba(0, 0, 0, 0.3) 0 0 6px;
 }
-.project-item .image-section .tech-stacks {
-    border: 1px blue solid;
+.project-item .tech-stacks {
     margin-top: 10px;
-    height: 50px;
+}
+.project-item .tech-stacks h4 {
+    color: var(--black-700);
+    font-size: 20px;
+}
+.project-item .tech-stacks div {
+    display: flex;
+    gap: 10px;
+}
+.project-item .tech-stacks img {
+    width: 45px;
+    height: 45px;
+    padding: 0;
+    border-radius: 4px;
+    padding: 4px;
 }
 
 .project-item .project-info {
@@ -572,94 +624,6 @@ body.dark .about-me .profile {
     color: var(--black-900);
     font-size: 20px;
 }
-/*----------------------- 
- Team Section
--------------------------*/
-.team {
-    background-color: var(--black-100);
-}
-.team .team-item {
-    box-shadow: var(--shadow-black-100);
-    margin: 15px;
-    padding: 30px;
-    border-radius: 10px;
-    text-align: center;
-    position: relative;
-    z-index: 1;
-    overflow: hidden;
-}
-.team .team-item::before,
-.team .team-item::after {
-    content: "";
-    position: absolute;
-    z-index: -1;
-    border-radius: 50%;
-    transition: all 0.5s ease;
-    opacity: 0;
-}
-.team .team-item::before {
-    height: 20px;
-    width: 20px;
-    background-color: var(--color-1);
-    left: -20px;
-    top: 30%;
-}
-.team .team-item:hover::before {
-    left: 10px;
-    background-color: var(--color-1);
-    opacity: 1;
-}
-.team .team-item::after {
-    height: 30px;
-    width: 30px;
-    background-color: var(--color-3);
-    right: -30px;
-    top: 80%;
-}
-.team .team-item:hover::after {
-    opacity: 1;
-    right: -15px;
-}
-.team-item img {
-    border-radius: 6px;
-    max-width: 200px;
-    box-shadow: var(--shadow-black-100);
-    transition: all 0.5s ease;
-}
-.team-item img:hover {
-    box-shadow: var(--shadow-black-300);
-}
-.team-item h3 {
-    font-size: 18px;
-    color: var(--main-color);
-    font-weight: 500;
-    margin: 15px 0 5px;
-    text-transform: capitalize;
-    border-radius: 20px;
-    transition: all 0.5s ease;
-}
-.team-item h3:hover {
-    box-shadow: 0 0 4px #16c400;
-}
-.team-item p {
-    display: block;
-    font-size: 16px;
-    font-weight: 300;
-    color: var(--black-400);
-    text-transform: capitalize;
-}
-.team-item p span:nth-child(1):hover {
-    color: var(--main-color);
-}
-.team-item p span:nth-child(3):hover {
-    color: var(--color-1);
-}
-.team-item p span:nth-child(5):hover {
-    color: var(--color-2);
-}
-.team-item p span:nth-child(6):hover {
-    color: var(--color-3);
-}
 
 /*----------------------
  Contact Section
@@ -668,8 +632,16 @@ body.dark .about-me .profile {
     font-size: 22px;
     color: var(--black-900);
     font-weight: 500;
-    margin: 0 0 40px;
+    margin: 0 0 20px;
 }
+.contact-info .resume-btn {
+    margin: 0 0 30px;
+}
+.resume-btn a {
+    padding: 10px 30px;
+    background-color: var(--black-000);
+}
+
 .contact-info-item {
     position: relative;
     padding-left: 55px;
