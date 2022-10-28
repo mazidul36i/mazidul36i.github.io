@@ -395,7 +395,7 @@ ul {
 -------------------*/
 .home {
     position: relative;
-    height: 100vh;
+    height: 104vh;
     padding: 100px 0 100px;
     background: linear-gradient(rgba(7, 7, 7, 0.7), rgba(0, 0, 0, 0.4)),
         url("../resources/bg.jpg") no-repeat left top;
