@@ -52,16 +52,5 @@ function updateIcon() {
     }
 }
 
-/*--------------------------Projects Coursel-----------------------*/
-$(".projects-carousel").owlCarousel({
-    loop: true,
-    margin: 0,
-    autoplay: true,
-    autoplayHoverPause:true,
-    responsiveClass: true,
-    responsive: {
-        0: {
-            items: 1,
-        },
-    },
-});
+/*--------------------------Github Calender-----------------------*/
+GitHubCalendar(".calendar", "mazidul36i", { responsive: true });

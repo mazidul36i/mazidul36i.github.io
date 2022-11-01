@@ -17,7 +17,7 @@
     --shadow-black-300: 0 5px 15px rgba(0, 0, 0, 0.3);
     --black-900: #000000;
     --black-700: #2b2c2e;
-    --black-400: #555555;
+    --black-400: #666666;
     --black-100: #f7f7f7;
     --black-000: #ffffff;
     --black-alpha-100: rgba(0, 0, 0, 0.05);
@@ -148,6 +148,18 @@ ul {
     }
     100% {
         transform: rotateX(-30deg) rotateY(360deg);
+    }
+}
+@keyframes slide {
+    100% {
+        top: -120px;
+    }
+}
+@keyframes typing {
+    80%,
+    90% {
+        left: 100%;
+        margin: 0 -12px 0 12px;
     }
 }
 /*---------------------
@@ -294,7 +306,6 @@ ul {
 .navbar .navbar-brand {
     font-size: 30px;
     font-family: "Luckiest Guy", cursive;
-    /* background-color: red; */
     background-image: linear-gradient(
         45deg,
         #ff0000,
@@ -302,6 +313,7 @@ ul {
         rgb(255, 208, 0),
         rgb(255, 208, 0)
     );
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     -moz-background-clip: text;
@@ -396,6 +408,7 @@ ul {
 .home {
     position: relative;
     height: 104vh;
+    min-height: 500px;
     padding: 100px 0 100px;
     background: linear-gradient(rgba(7, 7, 7, 0.7), rgba(0, 0, 0, 0.4)),
         url("../resources/bg.jpg") no-repeat left top;
@@ -505,29 +518,21 @@ body.dark .about-me .profile {
 .wrapper .skills li span::after {
     position: absolute;
     left: 0;
+    top: 0;
     content: "";
-    height: 100%;
+    height: 29px;
     width: 100%;
     background: var(--black-000);
     border-left: 2px solid var(--color-3);
     animation: typing 5s ease infinite;
 }
-@keyframes slide {
-    100% {
-        top: -120px;
-    }
-}
-@keyframes typing {
-    80%,
-    90% {
-        left: 100%;
-        margin: 0 -12px 0 12px;
-    }
-}
 
 /*----------------------- 
- Skills
+ Tech Skills
  -------------------------*/
+.skills.section-padding {
+    background-color: var(--black-100);
+}
 .skills h3 {
     color: var(--black-400);
     margin-top: 10px;
@@ -561,12 +566,36 @@ body.dark .tech-stacks img:hover {
 }
 
 /*----------------------- 
+ Github Calender
+ -------------------------*/
+#github-calender {
+    font-family: "Poppins", sans-serif;
+}
+#github-calender .contrib-number {
+    color: var(--black-700);
+    font-weight: 500;
+}
+#github-calender .contrib-column .text-muted {
+    color: var(--black-400) !important;
+}
+#github-calender .float-right {
+    color: var(--black-400) !important;
+}
+#github-calender text.ContributionCalendar-label {
+    fill: var(--black-400) !important;
+}
+
+/*----------------------- 
  Projects
  -------------------------*/
 .projects {
     background-color: var(--black-100);
 }
-.projects-carousel .project-item {
+.projects-container {
+    display: grid;
+    gap: 15px;
+}
+.projects-container .project-item {
     display: flex;
     margin: 8px;
     background-color: var(--black-000);
@@ -785,10 +814,10 @@ body.dark .tech-stacks img:hover {
         flex-direction: column;
     }
 
-    .projects-carousel .project-item {
+    .projects-container .project-item {
         flex-direction: column;
     }
-    .projects-carousel .project-item > * {
+    .projects-container .project-item > * {
         width: 100%;
     }
 
@@ -806,8 +835,10 @@ body.dark .tech-stacks img:hover {
     .section-title h2 {
         font-size: 35px;
     }
-    .fun-facts .section-title h2 {
-        text-align: center;
+
+    #github-calender .contrib-column.contrib-column-first {
+        display: block;
+        width: 100%;
     }
 }
 @media (max-width: 575px) {
@@ -821,5 +852,16 @@ body.dark .tech-stacks img:hover {
 
     .section-title h2 {
         font-size: 30px;
+    }
+
+    #github-calender .contrib-column {
+        display: block;
+        width: 100%;
+    }
+}
+@media (max-width: 384px) {
+    .project-item .project-info .links {
+        flex-direction: column;
+        gap: 5px;
     }
 }
