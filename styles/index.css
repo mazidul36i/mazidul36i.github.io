@@ -409,6 +409,7 @@ ul {
     position: relative;
     height: 104vh;
     min-height: 500px;
+    max-height: 800px;
     padding: 100px 0 100px;
     background: linear-gradient(rgba(7, 7, 7, 0.7), rgba(0, 0, 0, 0.4)),
         url("../resources/bg.jpg") no-repeat left top;
@@ -548,7 +549,7 @@ body.dark .about-me .profile {
 .tech-stacks img {
     width: 100px;
     padding: 10px;
-    background-color: rgb(238, 241, 248);
+    background-color: rgb(225, 230, 241);
     border-radius: 6px;
     transition: all 0.4s cubic-bezier(0.38, 0.37, 0.17, 0.83);
 }
@@ -557,7 +558,7 @@ body.dark .about-me .profile {
     box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.3), 0 0 5px rgba(0, 0, 0, 0.527);
 }
 body.dark .skills .tools_and_tech img {
-    background-color: rgb(36, 36, 46);
+    background-color: rgb(32, 32, 46);
 }
 body.dark .skills .tools_and_tech img:hover,
 body.dark .tech-stacks img:hover {
@@ -570,6 +571,10 @@ body.dark .tech-stacks img:hover {
  -------------------------*/
 #github-calender {
     font-family: "Poppins", sans-serif;
+    background-color: #f7f7ff;
+}
+body.dark #github-calender {
+    background-color: var(--black-100);
 }
 #github-calender .contrib-number {
     color: var(--black-700);

@@ -54,3 +54,46 @@ function updateIcon() {
 
 /*--------------------------Github Calender-----------------------*/
 GitHubCalendar(".calendar", "mazidul36i", { responsive: true });
+
+/*--------------------------Contact Form-----------------------*/
+$("#email_form").submit((e) => {
+    $("#submit").prop("disabled", true);
+
+    let data = {
+        name: $("#name").val(),
+        email: $("#email").val(),
+        message: $("#message").val(),
+        _captcha: false,
+        _next: "",
+    };
+    if ($("#subject").val()) data.subject = $("#subject").val();
+
+    submitForm(data);
+    e.preventDefault();
+});
+
+const submitForm = (data) => {
+    $.ajax({
+        method: "POST",
+        url: "https://formsubmit.co/islammazidul1369@gmail.com",
+        // dataType: "json",
+        accepts: "application/json",
+        data: data,
+    })
+        .done(function (data) {
+            $("#popup-message").html(
+                "Thank you for taking the time to contact me.<br> I appreciate your interest and I will get back to you as soon as possible."
+            );
+            $("#popupModal").modal("show");
+            $("#email_form").trigger("reset");
+        })
+        .fail(() => {
+            $("#popup-message").html(
+                "Something went you wrong..!<br>Please try again."
+            );
+            $("#popupModal").modal("show");
+        })
+        .always(() => {
+            $("#submit").prop("disabled", false);
+        });
+};
