@@ -628,20 +628,22 @@ body.dark #github-calender {
     border-radius: 8px;
     box-shadow: rgba(0, 0, 0, 0.3) 0 0 6px;
 }
-.project-item .tech-stacks {
+#projects .project-item .tech-stacks {
     margin-top: 10px;
 }
-.project-item .tech-stacks h4 {
+#projects .project-item .tech-stacks h4 {
     color: var(--black-700);
     font-size: 20px;
 }
-.project-item .tech-stacks div {
+#projects .project-item .tech-stacks div {
     display: flex;
     gap: 10px;
 }
-.project-item .tech-stacks img {
-    width: 45px;
-    height: 45px;
+#projects .project-item .tech-stacks img {
+    max-width: 45px;
+    max-height: 45px;
+    min-width: 45px;
+    min-height: 45px;
     padding: 0;
     border-radius: 4px;
     padding: 4px;
