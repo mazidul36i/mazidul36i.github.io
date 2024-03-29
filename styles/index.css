@@ -534,33 +534,44 @@ body.dark .about-me .profile {
 .skills.section-padding {
     background-color: var(--black-100);
 }
-.skills h3 {
+.skills .section-title {
+    margin-bottom: 30px;
+}
+.skills .techs_and_tools {
+    display: flex;
+    column-gap: 10px;
+}
+.skills .techs_and_tools h3 {
     color: var(--black-400);
-    margin-top: 10px;
+    margin-bottom: 30px;
     font-size: 24px;
 }
-.skills .tools_and_tech {
+.skills .techs_and_tools > div > .skill-list {
     display: flex;
     flex-wrap: wrap;
     gap: 30px;
     justify-content: center;
 }
-.skills .tools_and_tech img,
+.skills .skill-list img,
 .tech-stacks img {
-    width: 100px;
+    min-width: 100px;
+    max-width: 100px;
+    min-height: 100px;
+    max-height: 100px;
     padding: 10px;
+    object-fit: contain;
     background-color: rgb(225, 230, 241);
     border-radius: 6px;
     transition: all 0.4s cubic-bezier(0.38, 0.37, 0.17, 0.83);
 }
-.skills .tools_and_tech img:hover,
+.skills .skill-list img:hover,
 .tech-stacks img:hover {
     box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.3), 0 0 5px rgba(0, 0, 0, 0.527);
 }
-body.dark .skills .tools_and_tech img {
+body.dark .skills .skill-list img {
     background-color: rgb(32, 32, 46);
 }
-body.dark .skills .tools_and_tech img:hover,
+body.dark .skills .skill-list img:hover,
 body.dark .tech-stacks img:hover {
     box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.3),
         0 0 5px rgba(255, 255, 255, 0.527);
@@ -834,6 +845,11 @@ body.dark #github-calender {
     }
 }
 @media (max-width: 767px) {
+    .skills .techs_and_tools {
+        flex-direction: column;
+        row-gap: 45px;
+    }
+
     .contact-form {
         margin-top: 20px;
     }
