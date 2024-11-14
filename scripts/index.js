@@ -32,6 +32,7 @@ function toggleTheme() {
     }
     updateIcon();
 }
+
 toggleTheme();
 $(".toggle-theme").on("click", function () {
     $("body").toggleClass("dark");
@@ -42,6 +43,7 @@ $(".toggle-theme").on("click", function () {
     }
     updateIcon();
 });
+
 function updateIcon() {
     if ($("body").hasClass("dark")) {
         $(".toggle-theme i").removeClass("bx-moon");
@@ -53,7 +55,7 @@ function updateIcon() {
 }
 
 /*--------------------------Github Calender-----------------------*/
-GitHubCalendar(".calendar", "mazidul36i", { responsive: true });
+GitHubCalendar(".calendar", "mazidul36i", {responsive: true});
 
 /*--------------------------Contact Form-----------------------*/
 $("#email_form").submit((e) => {

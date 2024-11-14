@@ -22,6 +22,7 @@
     --black-000: #ffffff;
     --black-alpha-100: rgba(0, 0, 0, 0.05);
 }
+
 body {
     font-family: "Poppins", sans-serif;
     font-size: 16px;
@@ -32,6 +33,7 @@ body {
     max-width: 1700px;
     margin: 0 auto;
 }
+
 body.dark {
     background-color: var(--bg-dark);
     --black-100: #2a2a2f;
@@ -45,6 +47,7 @@ body.dark {
     --black-700: #eceff3;
     --black-400: #bbbbbb;
 }
+
 * {
     margin: 0;
     padding: 0;
@@ -58,9 +61,11 @@ img {
     max-width: 100%;
     vertical-align: middle;
 }
+
 ul {
     list-style: none;
 }
+
 .btn-1 {
     background-color: #ffffff;
     padding: 12px 30px;
@@ -73,13 +78,16 @@ ul {
     box-shadow: var(--shadow-black-300);
     font-weight: 500;
 }
+
 .btn-1:focus {
     box-shadow: var(--shadow-black-300);
 }
+
 .btn-1:hover {
     color: white;
     background-color: var(--main-color);
 }
+
 .btn-2 {
     background-color: var(--main-color);
     padding: 12px 30px;
@@ -92,9 +100,11 @@ ul {
     box-shadow: var(--shadow-black-100);
     font-weight: 500;
 }
+
 .btn-2:focus {
     box-shadow: var(--shadow-black-100);
 }
+
 .btn-2:hover {
     color: var(--main-color);
     background-color: #ffffff;
@@ -111,6 +121,7 @@ ul {
         transform: rotate(360deg);
     }
 }
+
 @keyframes bounceTop_01 {
     0%,
     100% {
@@ -120,6 +131,7 @@ ul {
         transform: translateY(0px);
     }
 }
+
 @keyframes pulse_01 {
     0% {
         transform: scale(0.94);
@@ -134,6 +146,7 @@ ul {
         box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
     }
 }
+
 @keyframes spin {
     0% {
         transform: rotate(0);
@@ -142,6 +155,7 @@ ul {
         transform: rotate(360deg);
     }
 }
+
 @keyframes animate {
     0% {
         transform: rotateX(-30deg) rotateY(0deg);
@@ -150,11 +164,13 @@ ul {
         transform: rotateX(-30deg) rotateY(360deg);
     }
 }
+
 @keyframes slide {
     100% {
         top: -120px;
     }
 }
+
 @keyframes typing {
     80%,
     90% {
@@ -162,6 +178,7 @@ ul {
         margin: 0 -12px 0 12px;
     }
 }
+
 /*---------------------
  Global Efect
 -----------------------*/
@@ -169,6 +186,7 @@ ul {
     position: absolute;
     z-index: 1;
 }
+
 .effect-wrap .effect-1 {
     top: 20%;
     left: 20%;
@@ -176,6 +194,7 @@ ul {
     color: var(--color-2);
     animation: spin_01 5s linear infinite;
 }
+
 .effect-wrap .effect-2 {
     top: 10%;
     right: 5%;
@@ -183,6 +202,7 @@ ul {
     color: rgba(255, 255, 255, 0.5);
     animation: spin_01 7s linear infinite;
 }
+
 .effect-wrap .effect-3 {
     bottom: 30%;
     left: 5%;
@@ -197,9 +217,11 @@ ul {
 .section-padding {
     padding: 80px 0;
 }
+
 .section-title {
     margin-bottom: 60px;
 }
+
 .section-title h2 {
     font-size: 40px;
     color: var(--black-900);
@@ -208,6 +230,7 @@ ul {
     text-align: center;
     margin: 0;
 }
+
 .section-title h2 span {
     color: var(--main-color);
 }
@@ -220,6 +243,7 @@ ul {
     text-align: center;
     margin-top: 20px;
 }
+
 .owl-carousel button.owl-dot {
     height: 6px;
     width: 24px;
@@ -228,6 +252,7 @@ ul {
     margin: 0 4px;
     border-radius: 5px;
 }
+
 .owl-carousel button.owl-dot.active {
     background-color: var(--main-color);
 }
@@ -235,54 +260,55 @@ ul {
 /*-----------------
  Preloader Section
  -------------------*/
-/*
- .preloader{
- 	position: fixed;
- 	left: 0;
- 	top: 0;
- 	height: 100%;
- 	width: 100%;
- 	z-index: 2100;
- 	background-color: var(--main-to-dark-color);
- }
- .preloader div {
- 	display: block;
- 	position: relative;
- 	left: 50%;
- 	top: 50%;
- 	height: 150px;
- 	width: 150px;
- 	margin: -75px 0 0 -75px;
- 	border-radius: 50%;
- 	border: 3px solid transparent;
- 	border-top-color: #ffffff;
- 	border-radius: 50%;
- 	animation: spin 2s linear infinite;
- }
- .preloader div::before{
- 	content: '';
- 	position: absolute;
- 	top: 5px;
- 	left: 5px;
- 	right: 5px;
- 	bottom: 5px;
- 	border: 3px solid transparent;
- 	border-radius: 50%;
- 	border-top-color: var(--color-1);
- 	animation: spin 3s linear infinite;
- }
- .preloader div::after{
- 	content: '';
- 	position: absolute;
- 	top: 15px;
- 	left: 15px;
- 	right: 15px;
- 	bottom: 15px;
- 	border: 3px solid transparent;
- 	border-radius: 50%;
- 	border-top-color: var(--color-3);
- 	animation: spin 1.5s linear infinite;
-}*/
+.preloader {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 2100;
+    background-color: var(--main-to-dark-color);
+}
+
+.preloader div {
+    display: block;
+    position: relative;
+    left: 50%;
+    top: 50%;
+    height: 150px;
+    width: 150px;
+    margin: -75px 0 0 -75px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: #ffffff;
+    animation: spin 2s linear infinite;
+}
+
+.preloader div::before {
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    right: 5px;
+    bottom: 5px;
+    border: 3px solid transparent;
+    border-radius: 50%;
+    border-top-color: var(--color-1);
+    animation: spin 3s linear infinite;
+}
+
+.preloader div::after {
+    content: '';
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    right: 15px;
+    bottom: 15px;
+    border: 3px solid transparent;
+    border-radius: 50%;
+    border-top-color: var(--color-3);
+    animation: spin 1.5s linear infinite;
+}
 
 /*-----------------
  Navbar Section
@@ -294,11 +320,13 @@ ul {
     padding: 20px 0;
     transition: all 0.5s ease;
 }
+
 .navbar.navbar-shrink {
     box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
     background-color: var(--main-to-dark-color);
     padding: 10px 0;
 }
+
 .navbar > .container {
     padding: 0 15px;
 }
@@ -307,11 +335,11 @@ ul {
     font-size: 30px;
     font-family: "Luckiest Guy", cursive;
     background-image: linear-gradient(
-        45deg,
-        #ff0000,
-        #ff02ea,
-        rgb(255, 208, 0),
-        rgb(255, 208, 0)
+            45deg,
+            #ff0000,
+            #ff02ea,
+            rgb(255, 208, 0),
+            rgb(255, 208, 0)
     );
     background-clip: text;
     -webkit-background-clip: text;
@@ -319,9 +347,11 @@ ul {
     -moz-background-clip: text;
     -moz-text-fill-color: transparent;
 }
+
 .navbar .nav-item {
     margin-left: 40px;
 }
+
 .navbar .nav-item .nav-link {
     display: flex;
     gap: 5px;
@@ -333,6 +363,7 @@ ul {
     padding: 5px 0;
     position: relative;
 }
+
 .navbar .nav-item .nav-link::before {
     content: "";
     position: absolute;
@@ -344,10 +375,12 @@ ul {
     transition: all 0.5s ease;
     transform: scale(0);
 }
+
 .navbar .nav-item .nav-link.active::before,
 .navbar .nav-item .nav-link:hover::before {
     transform: scale(1);
 }
+
 .navbar .nav-item .nav-link i {
     font-size: 17px;
     margin-top: -3px;
@@ -361,6 +394,7 @@ ul {
     transform: rotateX(-30deg);
     animation: animate 4s linear infinite;
 }
+
 .cube div {
     position: absolute;
     top: 0;
@@ -369,6 +403,7 @@ ul {
     height: 100%;
     transform-style: preserve-3d;
 }
+
 .cube div span {
     position: absolute;
     top: 0;
@@ -376,8 +411,9 @@ ul {
     width: 100%;
     height: 100%;
     background: linear-gradient(var(--main-to-dark-color2), #00ec00);
-    transform: rotateY(calc(90deg * var(--i))) translateZ(11.4px);
+    transform: rotateY(calc(90deg * var(--i))) translateZ(11.8px);
 }
+
 .cube .top {
     position: absolute;
     top: 0;
@@ -387,6 +423,7 @@ ul {
     background: var(--main-to-dark-color2);
     transform: rotateX(90deg) translateZ(12px);
 }
+
 .cube .top::before {
     content: "";
     position: absolute;
@@ -398,8 +435,8 @@ ul {
     transform: translateZ(-24px);
     filter: blur(10px);
     box-shadow: 0 0 20px rgba(0, 255, 0, 0.2), 0 0 24px rgba(0, 255, 0, 0.4),
-        0 0 28px rgba(0, 255, 0, 0.6), 0 0 32px rgba(0, 255, 0, 0.8),
-        0 0 36px rgba(0, 255, 0, 1);
+    0 0 28px rgba(0, 255, 0, 0.6), 0 0 32px rgba(0, 255, 0, 0.8),
+    0 0 36px rgba(0, 255, 0, 1);
 }
 
 /*-----------------
@@ -412,7 +449,7 @@ ul {
     max-height: 800px;
     padding: 100px 0 100px;
     background: linear-gradient(rgba(7, 7, 7, 0.7), rgba(0, 0, 0, 0.4)),
-        url("../resources/bg.jpg") no-repeat left top;
+    url("../resources/bg.jpg") no-repeat left top;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -420,6 +457,7 @@ ul {
     z-index: 1;
     background-size: cover;
 }
+
 .home > svg {
     position: absolute;
     bottom: -45px;
@@ -428,6 +466,7 @@ ul {
     height: 100px;
     width: 100%;
 }
+
 .path {
     fill: var(--black-000);
 }
@@ -435,6 +474,7 @@ ul {
 body.dark .home {
     background-color: var(--black-100);
 }
+
 .home .container p {
     margin-left: 10px;
     font-size: 24px;
@@ -442,6 +482,7 @@ body.dark .home {
     color: #ffffff;
     text-shadow: var(--main-color) 0 0 6px;
 }
+
 .home .container h1 {
     font-size: 50px;
     font-weight: 600;
@@ -449,12 +490,15 @@ body.dark .home {
     margin-top: 0;
     text-shadow: var(--main-color) 0 0 6px;
 }
+
 .home .home-btn {
     margin-top: 20px;
 }
+
 .home .home-btn a {
     animation: pulse_01 2s ease infinite;
 }
+
 .home .home-btn a:hover {
     animation: none;
     box-shadow: var(--shadow-black-300);
@@ -467,6 +511,7 @@ body.dark .home {
     display: flex;
     gap: 40px;
 }
+
 .about-me .profile {
     height: 240px;
     width: 240px;
@@ -474,17 +519,21 @@ body.dark .home {
     border: 4px var(--main-to-dark-color) solid;
     border-radius: 50%;
 }
+
 body.dark .about-me .profile {
     border-color: var(--black-900);
 }
+
 .about-me .about-text {
     display: flex;
     flex-direction: column;
 }
+
 .about-me .about-text h2 {
     margin-top: auto;
     color: var(--main-color);
 }
+
 .about-me .about-text p {
     margin-bottom: auto;
     color: var(--black-400);
@@ -493,18 +542,21 @@ body.dark .about-me .profile {
 .about-text .wrapper {
     display: inline-flex;
 }
+
 .wrapper .static-text {
     color: var(--black-900);
     font-size: 20px;
     font-weight: 400;
     line-height: 30px;
 }
+
 .wrapper .skills {
     margin-left: 10px;
     height: 30px;
     line-height: 30px;
     overflow: hidden;
 }
+
 .wrapper .skills li {
     position: relative;
     color: var(--color-3);
@@ -513,9 +565,11 @@ body.dark .about-me .profile {
     top: 0;
     animation: slide 20s steps(4) infinite;
 }
+
 .wrapper .skills li span {
     position: relative;
 }
+
 .wrapper .skills li span::after {
     position: absolute;
     left: 0;
@@ -534,24 +588,29 @@ body.dark .about-me .profile {
 .skills.section-padding {
     background-color: var(--black-100);
 }
+
 .skills .section-title {
     margin-bottom: 30px;
 }
+
 .skills .techs_and_tools {
     display: flex;
     column-gap: 10px;
 }
+
 .skills .techs_and_tools h3 {
     color: var(--black-400);
     margin-bottom: 30px;
     font-size: 24px;
 }
+
 .skills .techs_and_tools > div > .skill-list {
     display: flex;
     flex-wrap: wrap;
     gap: 30px;
     justify-content: center;
 }
+
 .skills .skill-list img,
 .tech-stacks img {
     min-width: 100px;
@@ -564,17 +623,20 @@ body.dark .about-me .profile {
     border-radius: 6px;
     transition: all 0.4s cubic-bezier(0.38, 0.37, 0.17, 0.83);
 }
+
 .skills .skill-list img:hover,
 .tech-stacks img:hover {
     box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.3), 0 0 5px rgba(0, 0, 0, 0.527);
 }
+
 body.dark .skills .skill-list img {
     background-color: rgb(32, 32, 46);
 }
+
 body.dark .skills .skill-list img:hover,
 body.dark .tech-stacks img:hover {
     box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.3),
-        0 0 5px rgba(255, 255, 255, 0.527);
+    0 0 5px rgba(255, 255, 255, 0.527);
 }
 
 /*----------------------- 
@@ -584,19 +646,24 @@ body.dark .tech-stacks img:hover {
     font-family: "Poppins", sans-serif;
     background-color: #f7f7ff;
 }
+
 body.dark #github-calender {
     background-color: var(--black-100);
 }
+
 #github-calender .contrib-number {
     color: var(--black-700);
     font-weight: 500;
 }
+
 #github-calender .contrib-column .text-muted {
     color: var(--black-400) !important;
 }
+
 #github-calender .float-right {
     color: var(--black-400) !important;
 }
+
 #github-calender text.ContributionCalendar-label {
     fill: var(--black-400) !important;
 }
@@ -607,10 +674,12 @@ body.dark #github-calender {
 .projects {
     background-color: var(--black-100);
 }
+
 .projects-container {
     display: grid;
     gap: 15px;
 }
+
 .projects-container .project-item {
     display: flex;
     margin: 8px;
@@ -619,32 +688,37 @@ body.dark #github-calender {
     box-shadow: rgba(0, 0, 0, 0.4) 0 0 8px;
     overflow: hidden;
 }
+
 .project-item .image-section {
     padding: 10px;
     width: 55%;
 }
+
 .project-item .image-section > img {
     width: 100%;
     border-radius: 8px;
     box-shadow: rgba(0, 0, 0, 0.3) 0 0 6px;
 }
+
 #projects .project-item .tech-stacks {
     margin-top: 10px;
 }
+
 #projects .project-item .tech-stacks h4 {
     color: var(--black-700);
     font-size: 20px;
 }
+
 #projects .project-item .tech-stacks div {
     display: flex;
     gap: 10px;
 }
+
 #projects .project-item .tech-stacks img {
     max-width: 45px;
     max-height: 45px;
     min-width: 45px;
     min-height: 45px;
-    padding: 0;
     border-radius: 4px;
     padding: 4px;
 }
@@ -654,11 +728,13 @@ body.dark #github-calender {
     padding: 12px;
     color: var(--black-900);
 }
+
 .project-item .project-info .links {
     display: flex;
     gap: 10px;
     margin-bottom: 10px;
 }
+
 .project-item .project-info .links a {
     text-decoration: none;
     color: var(--black-400);
@@ -667,6 +743,7 @@ body.dark #github-calender {
     gap: 5px;
     font-size: 15px;
 }
+
 .project-item .project-info .links a i {
     color: var(--black-900);
     font-size: 20px;
@@ -681,9 +758,11 @@ body.dark #github-calender {
     font-weight: 500;
     margin: 0 0 20px;
 }
+
 .contact-info .resume-btn {
     margin: 0 0 30px;
 }
+
 .resume-btn a {
     padding: 10px 30px;
     background-color: var(--black-000);
@@ -694,6 +773,7 @@ body.dark #github-calender {
     padding-left: 55px;
     margin-bottom: 30px;
 }
+
 .contact-info-item i {
     position: absolute;
     height: 40px;
@@ -707,12 +787,14 @@ body.dark #github-calender {
     text-align: center;
     line-height: 38px;
 }
+
 .contact-info-item h4 {
     font-size: 18px;
     font-weight: 400;
     margin: 0 0 10px;
     color: var(--black-900);
 }
+
 .contact-info-item p {
     font-size: 16px;
     font-weight: 300;
@@ -720,6 +802,7 @@ body.dark #github-calender {
     line-height: 26px;
     color: var(--black-400);
 }
+
 .contact-info-item p a {
     font-size: 16px;
     font-weight: 300;
@@ -728,9 +811,11 @@ body.dark #github-calender {
     color: var(--black-400);
     text-decoration: none;
 }
+
 .contact-form .form-group {
     margin-bottom: 25px;
 }
+
 .contact-form .form-control {
     height: 52px;
     border: 2px solid transparent;
@@ -747,6 +832,7 @@ body.dark #github-calender {
     padding-top: 12px;
     resize: none;
 }
+
 .contact-form .form-control:focus {
     border-color: var(--main-color);
 }
@@ -757,6 +843,7 @@ body.dark #github-calender {
 .footer {
     background-color: var(--main-to-dark-color);
 }
+
 .footer .copyright-text {
     padding: 20px 0;
     text-align: center;
@@ -766,6 +853,7 @@ body.dark #github-calender {
     margin: 50px 0 0;
     border-top: 1px solid rgba(255, 255, 255, 0.2);
 }
+
 .footer .copyright-text a {
     color: white;
 }
@@ -788,6 +876,7 @@ body.dark #github-calender {
     font-size: 18px;
     text-align: center;
 }
+
 .toggle-theme i {
     line-height: 40px;
 }
@@ -801,6 +890,7 @@ body.dark #github-calender {
         margin-top: 12px;
         z-index: 100;
     }
+
     .navbar-toggler {
         background-color: var(--main-to-dark-color);
         box-shadow: var(--shadow-black-300);
@@ -811,14 +901,17 @@ body.dark #github-calender {
         line-height: 34px;
         color: #ffffff;
     }
+
     .navbar-nav {
         background-color: var(--main-to-dark-color);
         box-shadow: var(--shadow-black-300);
     }
+
     .navbar .nav-item {
         margin: 0;
         padding: 5px 15px;
     }
+
     .navbar.navbar-shrink .navbar-toggler,
     .navbar.navbar-shrink .navbar-nav {
         background-color: var(--main-to-dark-color);
@@ -835,6 +928,7 @@ body.dark #github-calender {
     .projects-container .project-item {
         flex-direction: column;
     }
+
     .projects-container .project-item > * {
         width: 100%;
     }
@@ -842,10 +936,12 @@ body.dark #github-calender {
     .contact-info-item.email p a {
         font-size: 14px;
     }
+
     .footer-col {
         margin-bottom: 30px;
     }
 }
+
 @media (max-width: 767px) {
     .skills .techs_and_tools {
         flex-direction: column;
@@ -855,6 +951,7 @@ body.dark #github-calender {
     .contact-form {
         margin-top: 20px;
     }
+
     .section-title h2 {
         font-size: 35px;
     }
@@ -864,10 +961,12 @@ body.dark #github-calender {
         width: 100%;
     }
 }
+
 @media (max-width: 575px) {
     .cube {
         margin-left: 20px;
     }
+
     .wrapper .skills li,
     .wrapper .static-text {
         font-size: 20px;
@@ -882,6 +981,7 @@ body.dark #github-calender {
         width: 100%;
     }
 }
+
 @media (max-width: 384px) {
     .project-item .project-info .links {
         flex-direction: column;
