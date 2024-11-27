@@ -35,8 +35,9 @@ function toggleTheme() {
 
 toggleTheme();
 $(".toggle-theme").on("click", function () {
-    $("body").toggleClass("dark");
-    if ($("body").hasClass("dark")) {
+    const body = $("body");
+    body.toggleClass("dark");
+    if (body.hasClass("dark")) {
         localStorage.setItem("sketch-theme", "dark");
     } else {
         localStorage.setItem("sketch-theme", "light");
@@ -45,17 +46,15 @@ $(".toggle-theme").on("click", function () {
 });
 
 function updateIcon() {
+    const icon = $(".toggle-theme i");
     if ($("body").hasClass("dark")) {
-        $(".toggle-theme i").removeClass("bx-moon");
-        $(".toggle-theme i").addClass("bx-sun");
+        icon.removeClass("bx-moon");
+        icon.addClass("bx-sun");
     } else {
-        $(".toggle-theme i").removeClass("bx-sun");
-        $(".toggle-theme i").addClass("bx-moon");
+        icon.removeClass("bx-sun");
+        icon.addClass("bx-moon");
     }
 }
-
-/*--------------------------Github Calender-----------------------*/
-GitHubCalendar(".calendar", "mazidul36i", {responsive: true});
 
 /*--------------------------Contact Form-----------------------*/
 $("#email_form").submit((e) => {
@@ -68,7 +67,8 @@ $("#email_form").submit((e) => {
         _captcha: false,
         _next: "",
     };
-    if ($("#subject").val()) data.subject = $("#subject").val();
+    const subjectInput = $("#subject");
+    if (subjectInput.val()) data.subject = subjectInput.val();
 
     submitForm(data);
     e.preventDefault();
