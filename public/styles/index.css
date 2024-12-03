@@ -18,8 +18,10 @@
     --black-900: #000000;
     --black-700: #2b2c2e;
     --black-400: #666666;
+    --black-300: rgb(225, 230, 241);
     --black-100: #f7f7f7;
     --black-000: #ffffff;
+    --black-alpha-50: rgba(225, 230, 241, .5);
     --black-alpha-100: rgba(0, 0, 0, 0.05);
 }
 
@@ -46,6 +48,8 @@ body.dark {
     --black-900: #eff5ff;
     --black-700: #eceff3;
     --black-400: #bbbbbb;
+    --black-300: rgba(40, 44, 52, 1);
+    --black-alpha-50: rgba(17, 0, 32, .5);
 }
 
 * {
@@ -167,7 +171,7 @@ ul {
 
 @keyframes slide {
     100% {
-        top: -120px;
+        top: -150px;
     }
 }
 
@@ -180,7 +184,7 @@ ul {
 }
 
 /*---------------------
- Global Efect
+ Global Effect
 -----------------------*/
 .effect-wrap .effect {
     position: absolute;
@@ -344,7 +348,6 @@ ul {
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    -moz-background-clip: text;
     -moz-text-fill-color: transparent;
 }
 
@@ -563,7 +566,7 @@ body.dark .about-me .profile {
     font-size: 20px;
     font-weight: 400;
     top: 0;
-    animation: slide 20s steps(4) infinite;
+    animation: slide 25s steps(5) infinite;
 }
 
 .wrapper .skills li span {
@@ -619,9 +622,13 @@ body.dark .about-me .profile {
     max-height: 100px;
     padding: 10px;
     object-fit: contain;
-    background-color: rgb(225, 230, 241);
-    border-radius: 6px;
+    border: 1px solid #ffffff22;
+    border-radius: 8px;
     transition: all 0.4s cubic-bezier(0.38, 0.37, 0.17, 0.83);
+    background: linear-gradient(0deg, var(--black-300) 0%, var(--black-alpha-50) 100%);
+    backdrop-filter: blur(7px);
+    -webkit-backdrop-filter: blur(7px);
+    overflow: hidden;
 }
 
 .skills .skill-list img:hover,
@@ -640,41 +647,8 @@ body.dark .tech-stacks img:hover {
 }
 
 /*----------------------- 
- Github Calender
- -------------------------*/
-#github-calender {
-    font-family: "Poppins", sans-serif;
-    background-color: #f7f7ff;
-}
-
-body.dark #github-calender {
-    background-color: var(--black-100);
-}
-
-#github-calender .contrib-number {
-    color: var(--black-700);
-    font-weight: 500;
-}
-
-#github-calender .contrib-column .text-muted {
-    color: var(--black-400) !important;
-}
-
-#github-calender .float-right {
-    color: var(--black-400) !important;
-}
-
-#github-calender text.ContributionCalendar-label {
-    fill: var(--black-400) !important;
-}
-
-/*----------------------- 
  Projects
  -------------------------*/
-.projects {
-    background-color: var(--black-100);
-}
-
 .projects-container {
     display: grid;
     gap: 15px;
@@ -723,6 +697,10 @@ body.dark #github-calender {
     padding: 4px;
 }
 
+body.dark #projects .project-item .tech-stacks img {
+    background-color: rgb(32, 32, 46);
+}
+
 .project-item .project-info {
     width: 45%;
     padding: 12px;
@@ -752,6 +730,10 @@ body.dark #github-calender {
 /*----------------------
  Contact Section
 ------------------------*/
+.contact {
+    background-color: var(--black-100);
+}
+
 .contact-info h3 {
     font-size: 22px;
     color: var(--black-900);
@@ -850,7 +832,7 @@ body.dark #github-calender {
     font-size: 16px;
     color: rgba(255, 255, 255, 0.9);
     font-weight: 300;
-    margin: 50px 0 0;
+    margin: 0;
     border-top: 1px solid rgba(255, 255, 255, 0.2);
 }
 
@@ -956,10 +938,6 @@ body.dark #github-calender {
         font-size: 35px;
     }
 
-    #github-calender .contrib-column.contrib-column-first {
-        display: block;
-        width: 100%;
-    }
 }
 
 @media (max-width: 575px) {
@@ -975,16 +953,34 @@ body.dark #github-calender {
     .section-title h2 {
         font-size: 30px;
     }
-
-    #github-calender .contrib-column {
-        display: block;
-        width: 100%;
-    }
 }
 
 @media (max-width: 384px) {
     .project-item .project-info .links {
         flex-direction: column;
         gap: 5px;
+    }
+}
+
+
+.nft {
+    user-select: none;
+    max-width: 300px;
+    margin: 5rem auto;
+    border: 1px solid #ffffff22;
+    background-color: #282c34;
+    background: linear-gradient(0deg, rgba(40, 44, 52, 1) 0%, rgba(17, 0, 32, .5) 100%);
+    box-shadow: 0 7px 20px 5px #00000088;
+    border-radius: .7rem;
+    backdrop-filter: blur(7px);
+    -webkit-backdrop-filter: blur(7px);
+    overflow: hidden;
+    transition: .5s all;
+
+    .main {
+        display: flex;
+        flex-direction: column;
+        width: 90%;
+        padding: 1rem;
     }
 }
