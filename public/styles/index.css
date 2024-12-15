@@ -35,6 +35,9 @@ body {
     max-width: 1700px;
     margin: 0 auto;
 }
+body::-webkit-scrollbar {
+    display: none;
+}
 
 body.dark {
     background-color: var(--bg-dark);
@@ -612,6 +615,9 @@ body.dark .about-me .profile {
     flex-wrap: wrap;
     gap: 30px;
     justify-content: center;
+/*  I want to fit max 4 items inside this flex box in horizontal direction  */
+    width: 95%;
+
 }
 
 .skills .skill-list img,
@@ -845,7 +851,7 @@ body.dark #projects .project-item .tech-stacks img {
 ------------------------*/
 .toggle-theme {
     position: fixed;
-    right: 0;
+    right: 5px;
     top: calc(50% - 20px);
     height: 40px;
     width: 40px;
