@@ -22,18 +22,28 @@ $(".nav-link").on("click", function () {
 });
 
 /*--------------------Toggle Theme - light and dark theme--------------------*/
-function toggleTheme() {
-    if (localStorage.getItem("sketch-theme") !== null) {
-        if (localStorage.getItem("sketch-theme") === "dark") {
-            $("body").addClass("dark");
-        } else {
-            $("body").removeClass("dark");
-        }
+function applyInitialTheme() {
+    const systemTheme = detectSystemTheme();
+    toggleTheme(systemTheme === "dark")
+}
+
+function detectSystemTheme() {
+    const darkModeQuery = window.matchMedia("(prefers-color-scheme: dark)");
+    return darkModeQuery.matches ? "dark" : "light";
+}
+
+function toggleTheme(isDark) {
+    const savedTheme = localStorage.getItem("sketch-theme");
+    if (savedTheme === "dark" || (savedTheme == null && isDark === true)) {
+        $("body").addClass("dark");
+    } else {
+        $("body").removeClass("dark");
     }
     updateIcon();
 }
 
-toggleTheme();
+applyInitialTheme();
+
 $(".toggle-theme").on("click", function () {
     const body = $("body");
     body.toggleClass("dark");
@@ -77,7 +87,7 @@ $("#email_form").submit((e) => {
 const submitForm = (data) => {
     $.ajax({
         method: "POST",
-        url: "https://formsubmit.co/islammazidul1369@gmail.com",
+        url: "https://formsubmit.co/connect@mazidul.com",
         // dataType: "json",
         accepts: "application/json",
         data: data,
