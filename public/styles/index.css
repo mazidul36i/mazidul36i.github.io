@@ -665,6 +665,7 @@ body.dark .about-me .profile {
 
                     .org-name {
                         font-weight: 500;
+
                         .product-name {
                             font-weight: 400;
                             font-size: 18px;
@@ -763,7 +764,7 @@ body.dark .tech-stacks img:hover {
         margin: 8px;
         background-color: var(--black-000);
         border-radius: 12px;
-        box-shadow: rgba(0, 0, 0, 0.4) 0 0 8px;
+        box-shadow: rgba(0, 0, 0, 0.4) 0 0 5px;
         overflow: hidden;
 
         .image-section {
@@ -773,7 +774,7 @@ body.dark .tech-stacks img:hover {
             img {
                 width: 100%;
                 border-radius: 8px;
-                box-shadow: rgba(0, 0, 0, 0.3) 0 0 6px;
+                box-shadow: rgba(0, 0, 0, 0.3) 0 0 3px;
             }
         }
 
@@ -794,10 +795,44 @@ body.dark .tech-stacks img:hover {
                     align-items: center;
                     gap: 5px;
                     font-size: 15px;
+                    transition: all 0.3s ease;
 
                     i {
                         color: var(--black-900);
                         font-size: 20px;
+                    }
+
+                    &.highlight > i {
+                        color: var(--color-2);
+                    }
+
+                    &.highlight {
+                        span {
+                            font-weight: 500;
+                            transition: all 0.3s ease;
+                        }
+
+                        &:hover {
+                            cursor: cell;
+
+                            span {
+                                font-size: 16px;
+                                color: var(--color-2);
+                            }
+                        }
+                    }
+
+                    &.github-repo:hover {
+                        color: var(--black-900);
+                    }
+
+                    &.play-store > i,
+                    &.play-store:hover {
+                        color: #01875F;
+                    }
+
+                    &.open-solutions:hover {
+                        color: var(--main-color);
                     }
                 }
             }
