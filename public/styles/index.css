@@ -620,33 +620,33 @@ body.dark .about-me .profile {
 
         .work {
             display: flex;
+            flex-direction: column;
             gap: 15px;
-
-            .org-icon {
-                width: 80px;
-                height: 80px;
-                border-radius: 8px;
-                object-fit: contain;
-                margin-top: 5px;
-                box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.3), 0 0 1px rgba(0, 0, 0, 0.527);
-                z-index: 100;
-
-                &:hover {
-                    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.3), 0 0 5px rgba(0, 0, 0, 0.527);
-                }
-
-                &.prospecta {
-                    background: white;
-                    padding: 5px;
-                    transition: all 0.4s cubic-bezier(0.38, 0.37, 0.17, 0.83);
-                }
-            }
 
             .work-details-container {
                 display: flex;
-                flex-direction: column;
                 gap: 15px;
                 color: var(--black-900);
+
+                .org-icon {
+                    width: 80px;
+                    height: 80px;
+                    border-radius: 8px;
+                    object-fit: contain;
+                    margin-top: 5px;
+                    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.3), 0 0 1px rgba(0, 0, 0, 0.527);
+                    z-index: 100;
+
+                    &:hover {
+                        box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.3), 0 0 5px rgba(0, 0, 0, 0.527);
+                    }
+
+                    &.prospecta {
+                        background: white;
+                        padding: 5px;
+                        transition: all 0.4s cubic-bezier(0.38, 0.37, 0.17, 0.83);
+                    }
+                }
 
                 .work-header {
                     display: flex;
@@ -677,15 +677,18 @@ body.dark .about-me .profile {
                         color: var(--black-400);
                     }
                 }
+            }
 
-                .work-contribution-container {
-                    .work-contribution-list {
-                        display: flex;
-                        flex-direction: column;
-                        gap: 8px;
-                        margin-left: 18px;
-                        list-style: square;
-                    }
+            .work-contribution-container {
+                margin-left: 95px;
+                color: var(--black-900);
+
+                .work-contribution-list {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 8px;
+                    margin-left: 18px;
+                    list-style: square;
                 }
             }
         }
@@ -755,6 +758,10 @@ body.dark .tech-stacks img:hover {
 /*----------------------- 
  Projects
  -------------------------*/
+.projects {
+    background-color: var(--black-100);
+}
+
 .projects-container {
     display: grid;
     gap: 15px;
@@ -782,6 +789,10 @@ body.dark .tech-stacks img:hover {
             width: 45%;
             padding: 12px;
             color: var(--black-900);
+
+            &.w-100-percent {
+                width: 100%;
+            }
 
             .links {
                 display: flex;
@@ -837,6 +848,15 @@ body.dark .tech-stacks img:hover {
                 }
             }
 
+            p {
+                .highlight {
+                    font-weight: 500;
+                    background: var(--black-300);
+                    padding: 2px 6px;
+                    border-radius: 8px;
+                }
+            }
+
             .tech-stacks {
                 margin-top: 10px;
 
@@ -871,7 +891,7 @@ body.dark #projects .project-item .tech-stacks img {
  Contact Section
 ------------------------*/
 .contact {
-    background-color: var(--black-100);
+    min-height: 90vh;
 
     .contact-info {
         h3 {
@@ -1112,8 +1132,7 @@ body.dark #projects .project-item .tech-stacks img {
 
             .work {
                 .work-contribution-container {
-                    left: 0;
-
+                    margin-left: 8px;
                 }
             }
         }
