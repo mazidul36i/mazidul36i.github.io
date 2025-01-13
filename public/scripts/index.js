@@ -11,7 +11,7 @@ $(window).on("scroll", function () {
     }
 });
 
-/*-------------------------Page Scrollibg - ScrollIt------------------------*/
+/*-------------------------Page Scrolling - ScrollIt------------------------*/
 $.scrollIt({
     topOffset: -50,
 });

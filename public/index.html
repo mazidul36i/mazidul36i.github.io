@@ -151,45 +151,44 @@
 			<div class="experience-container">
 				<div class="line"></div>
 				<div class="work">
-					<img class="org-icon prospecta" src="resources/icons/prospecta.webp" alt="Prospecta">
 					<div class="work-details-container">
+						<img class="org-icon prospecta" src="resources/icons/prospecta.webp" alt="Prospecta">
 						<div class="work-header">
 							<h3 class="role">Development Engineer</h3>
 							<h4 class="org-name">Prospecta Software <span class="product-name">(Master Data Online - MDO)</span></h4>
 							<h4 class="working-years">Feb 2023 - Present</h4>
 						</div>
-						<div class="work-contribution-container">
-							<ul class="work-contribution-list">
-                                <li class="work-contribution">Built the <b>Hierarchy View</b> feature to visually
-                                    represent complex relationships between multiple master records and datasets in an
-                                    intuitive user interface.</li>
-                                <li class="work-contribution">Delivered a <b>Long Lived Token</b> system during a 4-day
-                                    hackathon, enabling secure and seamless communication between external systems and
-                                    MDO's authenticated endpoints.</li>
-                                <li class="work-contribution">Engineered the <b>Technical Profiling</b> which analyzes
-                                    master datasets with insights on null, distinct, duplicates, max/min length, and
-                                    most common values.</li>
-                                <li class="work-contribution">Created a <b>360° View</b> of master records with team, providing
-                                    insights on the homepage with features like Data Quality, related records, recent
-                                    activities, and detailed analyses.</li>
-                                <li class="work-contribution">Developed an <b>Adapter</b> to integrate MDO with external systems
-                                    like CPI and SAP, facilitating seamless validation and synchronization of master
-                                    records.</li>
-                                <li class="work-contribution">Built a <b>Hierarchy Restriction</b> feature to allow admins to
-                                    control the number of hierarchies that can be extended or edited to a master record
-                                    through configurable workflows.</li>
-                                <li class="work-contribution">Designed and implemented a scheduler for the <b>Data
-                                    Intelligence Workbench</b>, enabling automated task execution (daily, weekly,
-                                    monthly, custom).</li>
-							</ul>
-						</div>
+					</div>
+					<div class="work-contribution-container">
+						<ul class="work-contribution-list">
+							<li class="work-contribution">Built the <b>Hierarchy View</b> feature to visually
+								represent complex relationships between multiple master records and datasets in an
+								intuitive user interface.</li>
+							<li class="work-contribution">Delivered a <b>Long Lived Token</b> system during a 4-day
+								hackathon, enabling secure and seamless communication between external systems and
+								MDO's authenticated endpoints.</li>
+							<li class="work-contribution">Engineered the <b>Technical Profiling</b> which analyzes
+								master datasets with insights on null, distinct, duplicates, max/min length, and
+								most common values.</li>
+							<li class="work-contribution">Created a <b>360° View</b> of master records with team, providing
+								insights on the homepage with features like Data Quality, related records, recent
+								activities, and detailed analyses.</li>
+							<li class="work-contribution">Developed an <b>Adapter</b> to integrate MDO with external systems
+								like CPI and SAP, facilitating seamless validation and synchronization of master
+								records.</li>
+							<li class="work-contribution">Built a <b>Hierarchy Restriction</b> feature to allow admins to
+								control the number of hierarchies that can be extended or edited to a master record
+								through configurable workflows.</li>
+							<li class="work-contribution">Designed and implemented a scheduler for the <b>Data
+								Intelligence Workbench</b>, enabling automated task execution (daily, weekly,
+								monthly, custom).</li>
+						</ul>
 					</div>
 				</div>
 			</div>
 		</div>
 	</section>
 	<!----Work Experience Section End----->
-
 
 	<!----Skills Section Start----->
 	<section class="skills section-padding" id="skills" data-scroll-index="3">
@@ -354,10 +353,11 @@
 								<i class='bx bx-link-external'></i> Live URL
 							</a>
 						</div>
-						<p>This app helps users monitor their internet speed and usage in real-time. It provides a
-							visual representation of data usage through a chart, and tracks app usage while securely
-							storing data for up to 30 days. With this app, users can gain insights into their internet
-							experience and make informed decisions about their data consumption.</p>
+						<p>Open Solutions is a tech blog where I document practical solutions to development challenges,
+							such as a guide to installing Docker Desktop on Ubuntu 24. The site uses Firebase Firestore,
+							Firebase Storage, and Firebase Authentication, built with HTML, CSS, JavaScript, and JQuery.
+							It showcases my ability to create user-focused solutions while maintaining a full-stack
+							approach.</p>
 						<div class="tech-stacks">
 							<h4>Tech Stacks</h4>
 							<div>
@@ -389,10 +389,10 @@
 								<i class='bx bxl-github'></i> Github repo
 							</a>
 						</div>
-						<p>This is the MARRS bank, a RESTful API for an Online Payment Wallet application. This API
-							performs
-							all the fundamental CRUD operations of any Online Wallet Banking platform with user
-							validation at every step.</p>
+						<p>MARRS Bank is a RESTful API for an Online Payment Wallet application. It implements core
+							banking functionalities, allowing users to perform essential CRUD operations while ensuring
+							user validation at each step. Though not a complete banking system, it provides the
+							foundational operations required for secure and efficient wallet management.</p>
 						<div class="tech-stacks">
 							<h4>Tech Stacks</h4>
 							<div>
@@ -401,6 +401,42 @@
 								</a>
 								<a href="https://spring.io/" target="_blank" title="SpringBoot">
 									<img src="resources/icons/spring.svg" alt="spring" />
+								</a>
+								<a href="https://www.mysql.com/" target="_blank" title="MySQL">
+									<img src="resources/icons/mysql.svg" alt="mysql" />
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="project-item">
+					<div class="project-info w-100-percent">
+						<h1>JWT Spring Security</h1>
+						<div class="links">
+							<a class="github-repo" target="_blank" href="https://github.com/mazidul36i/jwt-spring-security">
+								<i class='bx bxl-github'></i> Github repo
+							</a>
+						</div>
+						<p>The <span class="highlight">jwt-spring-security</span> project is a Spring Boot application
+							that implements JWT-based authentication and role-based authorization using Spring Security.
+							It provides a robust foundation for securing RESTful APIs by ensuring that only
+							authenticated users with appropriate roles can access specific resources. The application is
+							configured to be able to connect with any SQL database like MySQL, PostgreSQL, etc. The
+							database connection properties are specified in the <span class="highlight">application.properties</span> file. This project
+							demonstrates proficiency in implementing secure authentication mechanisms and managing user
+							roles within a Spring Boot environment.</p>
+						<div class="tech-stacks">
+							<h4>Tech Stacks</h4>
+							<div>
+								<a href="https://www.java.com/" target="_blank" title="Java">
+									<img src="resources/icons/java.svg" alt="java" />
+								</a>
+								<a href="https://spring.io/" target="_blank" title="SpringBoot">
+									<img src="resources/icons/spring.svg" alt="spring" />
+								</a>
+								<a href="https://spring.io/projects/spring-security" target="_blank" title="Spring Security">
+									<img src="resources/icons/spring-security.png" alt="spring security" />
 								</a>
 								<a href="https://www.mysql.com/" target="_blank" title="MySQL">
 									<img src="resources/icons/mysql.svg" alt="mysql" />
@@ -439,11 +475,11 @@
 							<p><a href="mailto:connect@mazidul.com" target="_blank"
 									title="My email">connect@mazidul.com</a></p>
 						</div>
-						<!-- <div class="contact-info-item mobile">
+						 <div class="contact-info-item mobile">
 							<i class='bx bx-phone'></i>
-							<h4>Write to me at</h4>
-							<p><a title="My mobile">+91 0987654321/a></p>
-						</div> -->
+							<h4>Phone</h4>
+							<p><a title="My mobile">+91 6002601821</a></p>
+						</div>
 						<div class="contact-info-item">
 							<i class='bx bxl-github'></i>
 							<h4>GitHub profile</h4>
