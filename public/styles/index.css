@@ -60,6 +60,7 @@ body.dark {
     margin: 0;
     padding: 0;
     outline: none !important;
+    transition: ease 0.2s background, ease 0.1s color;
 }
 
 /*-------------------
@@ -661,6 +662,22 @@ body.dark .about-me .profile {
                     .working-years {
                         font-size: 20px;
                         margin-bottom: 2px;
+
+                        a {
+                            color: var(--black-900);
+                            transition: all 0.3s ease;
+                            text-decoration: underline;
+                            text-decoration-color: transparent;
+                            -webkit-text-decoration-color: transparent;
+                            -moz-text-decoration-color: transparent;
+
+                            &:hover {
+                                color: var(--black-700);
+                                text-decoration-color: var(--black-700);
+                                -webkit-text-decoration-color: var(--black-700);
+                                -moz-text-decoration-color: var(--black-700);
+                            }
+                        }
                     }
 
                     .org-name {
@@ -891,7 +908,7 @@ body.dark #projects .project-item .tech-stacks img {
  Contact Section
 ------------------------*/
 .contact {
-    min-height: 90vh;
+    min-height: calc(100vh - 120px);
 
     .contact-info {
         h3 {
