@@ -1124,6 +1124,12 @@ body.dark #projects .project-item .tech-stacks img {
 }
 
 @media (max-width: 767px) {
+    .home {
+        .download-resume {
+            display: none;
+        }
+    }
+
     .skills .techs_and_tools {
         flex-direction: column;
         row-gap: 45px;
