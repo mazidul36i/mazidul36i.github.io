@@ -487,15 +487,27 @@ ul {
             text-shadow: var(--main-color) 0 0 6px;
         }
 
-        .home-btn {
-            margin-top: 20px;
-
-            a {
+        .home-link-container {
+            .resume-btn {
                 animation: pulse_01 2s ease infinite;
 
                 &:hover {
                     animation: none;
                     box-shadow: var(--shadow-black-300);
+                }
+            }
+
+            .download-resume {
+                align-items: center;
+                align-content: center;
+                height: 48px;
+                aspect-ratio: 1;
+                padding: 0;
+                margin-left: 5px;
+
+                i {
+                    font-size: 18px;
+                    margin-top: 3px;
                 }
             }
         }
@@ -908,7 +920,7 @@ body.dark #projects .project-item .tech-stacks img {
  Contact Section
 ------------------------*/
 .contact {
-    min-height: calc(100vh - 120px);
+    min-height: calc(100vh - 110px);
 
     .contact-info {
         h3 {
@@ -1112,6 +1124,12 @@ body.dark #projects .project-item .tech-stacks img {
 }
 
 @media (max-width: 767px) {
+    .home {
+        .download-resume {
+            display: none;
+        }
+    }
+
     .skills .techs_and_tools {
         flex-direction: column;
         row-gap: 45px;
