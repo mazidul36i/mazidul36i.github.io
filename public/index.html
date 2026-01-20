@@ -95,22 +95,102 @@
 	<!----Navbar End------>
 
 	<!----Home Section Start ----->
-	<section class="home d-flex align-items-center" id="home" data-scroll-index="0">
-		<div class="container">
-			<p>Hi, I'm a</p>
-			<h1>Software Engineer</h1>
-			<div class="home-link-container">
-				<a href="/Mazidul_Islam_Resume_Software_Engineer.pdf" target="_blank" title="Have a look at my resume"
-				   class="btn btn-1 resume-btn">Resume</a>
-				<a href="/Mazidul_Islam_Resume_Software_Engineer.pdf" download="/Mazidul_Islam_Resume_Software_Engineer.pdf"
-				   title="Download my resume" class="btn btn-2 download-resume"><i class='bx bxs-download'></i></a>
+	<section class="hero" id="home" data-scroll-index="0">
+		<!-- Animated background -->
+		<div class="hero-background">
+			<div class="shape shape-1"></div>
+			<div class="shape shape-2"></div>
+			<div class="shape shape-3"></div>
+		</div>
+
+		<div class="hero-content">
+			<div class="container h-100">
+				<div class="hero-grid">
+					<!-- Left side - Text -->
+					<div class="hero-text-section">
+						<div class="hero-badge">
+							<span class="badge-dot"></span>
+							Available for opportunities
+						</div>
+						<h1 class="hero-title">
+							<span class="hero-word">Building</span>
+							<span class="hero-word">Tomorrow's</span>
+							<span class="hero-word highlight">Backend</span>
+						</h1>
+						<p class="hero-subtitle">
+							Software Engineer specializing in scalable systems with Java, Spring Boot & modern technologies
+						</p>
+						<p class="hero-meta">
+							<i class='bx bx-briefcase'></i> 2+ Years of Experience • 
+							<i class='bx bx-code'></i> Backend Focus
+						</p>
+						<div class="hero-buttons">
+							<a href="/Mazidul_Islam_Resume_Software_Engineer.pdf" target="_blank" title="View my resume" class="btn btn-primary">
+								<i class='bx bx-file'></i> View Resume
+							</a>
+							<a href="#contact" data-scroll-nav="5" class="btn btn-secondary">
+								<i class='bx bx-envelope'></i> Get in Touch
+							</a>
+						</div>
+						<div class="hero-stats">
+							<div class="stat">
+								<div class="stat-number">2+</div>
+								<div class="stat-label">Years Experience</div>
+							</div>
+							<div class="stat">
+								<div class="stat-number">30+</div>
+								<div class="stat-label">Technologies</div>
+							</div>
+							<div class="stat">
+								<div class="stat-number">5+</div>
+								<div class="stat-label">Projects</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- Right side - Glassmorphism Card -->
+					<div class="hero-card-section">
+						<div class="glass-card">
+							<div class="card-glow"></div>
+							<div class="card-content">							<div class="card-profile-photo">
+								<img src="resources/mazidul-islam.jpg" alt="Mazidul Islam" title="Mazidul Islam">
+							</div>								<div class="card-header">
+									<h3>Mazidul Islam</h3>
+									<p>Software Engineer</p>
+								</div>
+								<div class="card-skills">
+									<span class="skill-tag">Java</span>
+									<span class="skill-tag">Spring Boot</span>
+									<span class="skill-tag">Backend</span>
+									<span class="skill-tag">PostgreSQL</span>
+									<span class="skill-tag">Elasticsearch</span>
+									<span class="skill-tag">Microservices</span>
+								</div>
+								<div class="card-social">
+									<a href="https://github.com/mazidul36i" target="_blank" title="GitHub" class="social-link">
+										<i class='bx bxl-github'></i>
+									</a>
+									<a href="https://www.linkedin.com/in/mazidul36i/" target="_blank" title="LinkedIn" class="social-link">
+										<i class='bx bxl-linkedin'></i>
+									</a>
+									<a href="mailto:connect@mazidul.com" title="Email" class="social-link">
+										<i class='bx bx-envelope'></i>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
-		<svg preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-			<path class="path" fill="#0099ff" fill-opacity="1"
-				d="M0,128L80,117.3C160,107,320,85,480,96C640,107,800,149,960,160C1120,171,1280,149,1360,138.7L1440,128L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z">
-			</path>
-		</svg>
+
+		<!-- Scroll indicator -->
+		<div class="hero-scroll">
+			<span>Scroll to explore</span>
+			<div class="scroll-icon">
+				<div class="scroll-dot"></div>
+			</div>
+		</div>
 	</section>
 	<!----Home Section End ----->
 
@@ -124,26 +204,24 @@
 					</div>
 				</div>
 			</div>
-			<div class="row-2">
-				<img src="resources/mazidul-islam.jpg" alt="Profile" title="My profile photo" class="profile">
-				<div class="about-text">
-					<h2>I'm Mazidul Islam</h2>
-					<div class="wrapper">
-						<h1 class="static-text">Skilled in </h1>
-						<ul class="skills">
-							<li><span>Backend development</span></li>
-							<li><span>Android Development</span></li>
-							<li><span>Spring Boot</span></li>
-							<li><span>Elasticsearch</span></li>
-							<li><span>MySQL, PostgreSQL</span></li>
+			<div class="about-container">
+				<div class="about-image">
+					<img src="resources/mazidul-islam.jpg" alt="Mazidul Islam Profile" title="My profile photo" class="profile-img">
+				</div>
+				<div class="about-content">
+					<h2 class="about-name">I'm Mazidul Islam</h2>
+					<div class="about-focus">
+						<h3 class="static-text">Specialized in</h3>
+						<ul class="skills-list">
+							<li>Backend Development</li>
+							<li>Android Development</li>
+							<li>Spring Boot Architecture</li>
+							<li>Elasticsearch & Databases</li>
+							<li>High-Performance Systems</li>
 						</ul>
 					</div>
-
-					<p>A Software Engineer with over two years of experience, specializing in robust and scalable
-						backend development using technologies like Spring Boot, PostgreSQL, Elasticsearch,
-						RabbitMQ, gRPC, and Apache Spark. I have worked on complex systems, focusing on optimizing
-						performance and streamlining processes to meet business needs. Passionate about leveraging
-						innovative technologies to build efficient, high-performance software solutions.</p>
+					<p class="about-description">A Software Engineer with over two years of experience specializing in robust and scalable backend development. I leverage modern technologies like Spring Boot, PostgreSQL, Elasticsearch, RabbitMQ, gRPC, and Apache Spark to build efficient, high-performance systems. My focus is on optimizing performance and streamlining processes to deliver solutions that meet real business needs.</p>
+					<p class="about-description">Passionate about solving complex problems through innovative technology and building systems that scale gracefully while maintaining code quality.</p>
 				</div>
 			</div>
 		</div>
@@ -160,43 +238,27 @@
 					</div>
 				</div>
 			</div>
-			<div class="experience-container">
-				<div class="line"></div>
-				<div class="work">
-					<div class="work-details-container">
-						<img class="org-icon prospecta" src="resources/icons/prospecta.webp" alt="Prospecta">
-						<div class="work-header">
-							<h3 class="role">Development Engineer</h3>
-							<h4 class="org-name"><a href="https://www.prospecta.com">Prospecta Software</a> <span class="product-name">(Master Data Online - MDO)</span></h4>
-							<h4 class="working-years">Feb 2023 - Present</h4>
+			<div class="experience-cards">
+				<div class="experience-card">
+					<div class="card-header">
+						<img class="company-logo" src="resources/icons/prospecta.webp" alt="Prospecta Software">
+						<div class="card-title-group">
+							<h3 class="job-title">Development Engineer</h3>
+							<h4 class="company-name"><a href="https://www.prospecta.com" target="_blank">Prospecta Software</a></h4>
+							<span class="product-badge">Master Data Online - MDO</span>
+							<p class="work-period"><i class='bx bx-calendar'></i> Feb 2023 - Present</p>
 						</div>
 					</div>
-					<div class="work-contribution-container">
-						<ul class="work-contribution-list">
-							<li class="work-contribution">Developed <b>Task Analytics</b> to provide intuitive visual insights
-								into task performance, enabling task admins to make data-driven decisions on SLA
-									compliance, rejection frequency, and overall task efficiency.</li>
-							<li class="work-contribution">Built the <b>Hierarchy View</b> feature to visually
-								represent complex relationships between multiple master records and datasets in an
-								intuitive user interface.</li>
-							<li class="work-contribution">Delivered a <b>Long Lived Token</b> system during a 4-day
-								hackathon, enabling secure and seamless communication between external systems and
-								MDO's authenticated endpoints.</li>
-							<li class="work-contribution">Engineered the <a href="https://helpcentre.prospecta.com/documentation/getting-started/technical-profiling" target="_blank">Technical Profiling</a>
-								which analyzes master datasets with insights on null, distinct, duplicates, max/min
-								length, and most common values with <b>100% accuracy</b>.</li>
-							<li class="work-contribution">Created a <a href="https://helpcentre.prospecta.com/documentation/getting-started/mdo-one" target="_blank">360° View</a>
-								of master records with team, providing insights on the homepage with features like Data
-								Quality, related records, recent activities, and detailed analyses. This reduces creation
-								of customized analytics by <b>70%</b>.</li>
-							<li class="work-contribution">Developed an <a href="https://helpcentre.prospecta.com/documentation/integration/connectivity/system" target="_blank">Adapter</a>
-								to integrate MDO with external systems like CPI and SAP, facilitating seamless
-								validation and synchronization of master records.</li>
-							<li class="work-contribution">Built a <b>Hierarchy Restriction</b> feature to allow admins to
-								control the number of hierarchies that can be extended or edited to a master record
-								through configurable workflows.</li>
-							<li class="work-contribution">Designed and implemented a scheduler for the <a href="https://helpcentre.prospecta.com/documentation/data-quality/diw-schemas" target="_blank">Data Intelligence Workbench</a>,
-								enabling automated task execution (daily, weekly, monthly, custom).</li>
+					<div class="card-body">
+						<ul class="contributions">
+							<li><strong>Task Analytics:</strong> Developed visual insights for task performance, enabling data-driven decisions on SLA compliance and efficiency metrics.</li>
+							<li><strong>Hierarchy View:</strong> Built feature to visually represent complex relationships between master records and datasets.</li>
+							<li><strong>Long Lived Token:</strong> Delivered secure token system during hackathon for external system communication.</li>
+							<li><strong>Technical Profiling:</strong> Engineered analysis of master datasets with insights on data quality, duplicates, and patterns achieving 100% accuracy.</li>
+							<li><strong>360° View:</strong> Created comprehensive master record view reducing customized analytics creation by 70%.</li>
+							<li><strong>System Adapter:</strong> Developed integration with external systems like CPI and SAP for seamless validation and synchronization.</li>
+							<li><strong>Hierarchy Restriction:</strong> Built admin feature to control hierarchy extensions through configurable workflows.</li>
+							<li><strong>DIW Scheduler:</strong> Designed automated task execution system supporting multiple scheduling patterns.</li>
 						</ul>
 					</div>
 				</div>
@@ -215,79 +277,127 @@
 					</div>
 				</div>
 			</div>
-			<div class="techs_and_tools">
-				<div class="skills_tools">
-					<h3 align="center">Tech Stacks</h3>
-					<div class="skill-list">
-						<a href="https://www.java.com" target="_blank" title="Java">
-							<img src="resources/icons/java.svg" alt="java" />
+			<div class="skills-grid">
+				<div class="skills-category">
+					<h3>Languages & Frameworks</h3>
+					<div class="skill-icons-group">
+						<a href="https://www.java.com" target="_blank" title="Java" class="skill-icon">
+							<img src="resources/icons/java.svg" alt="Java" />
+							<span>Java</span>
 						</a>
-						<a href="https://kotlinlang.org" target="_blank" title="Kotlin">
-							<img src="resources/icons/kotlin.svg" alt="kotlin" />
+						<a href="https://kotlinlang.org" target="_blank" title="Kotlin" class="skill-icon">
+							<img src="resources/icons/kotlin.svg" alt="Kotlin" />
+							<span>Kotlin</span>
 						</a>
-						<a href="https://spring.io/" target="_blank" title="Spring Boot">
-							<img src="resources/icons/spring.svg" alt="spring boot" />
+						<a href="https://spring.io/" target="_blank" title="Spring Boot" class="skill-icon">
+							<img src="resources/icons/spring.svg" alt="Spring Boot" />
+							<span>Spring Boot</span>
 						</a>
-						<a href="https://developer.android.com/" target="_blank" title="Android">
-							<img src="resources/icons/android.svg" alt="android" />
+						<a href="https://developer.android.com/" target="_blank" title="Android" class="skill-icon">
+							<img src="resources/icons/android.svg" alt="Android" />
+							<span>Android</span>
 						</a>
-
-						<a href="https://www.mysql.com/" target="_blank" title="MySQL">
-							<img src="resources/icons/mysql.svg" alt="mysql" />
-						</a>
-						<a href="https://www.elastic.co/elasticsearch" target="_blank" title="Elastic Search">
-							<img src="resources/icons/elasticsearch.svg" alt="elastic search" />
-						</a>
-						<a href="https://spring.io/projects/spring-security" target="_blank" title="Spring Security">
-							<img src="resources/icons/spring-security.png" alt="spring security" />
-						</a>
-						<a href="https://www.python.org/" target="_blank" title="Python">
-							<img src="resources/icons/python.svg" alt="python" />
-						</a>
-
-						<a href="https://hibernate.org/orm/" target="_blank" title="Hibernate">
-							<img src="resources/icons/hibernate.svg" alt="hibernate" />
-						</a>
-						<a href="https://grpc.io/" target="_blank" title="gRPC">
-							<img src="resources/icons/grpc.svg" alt="grpc" />
-						</a>
-						<a href="https://www.rabbitmq.com/" target="_blank" title="RabbitMQ">
-							<img src="resources/icons/rabbitmq.svg" alt="rabbitmq" />
-						</a>
-
-						<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank"
-							title="JavaScript">
-							<img src="resources/icons/javascript.svg" alt="javascript" />
-						</a>
-						<a href="https://www.w3.org/html/" target="_blank" title="HTML5">
-							<img src="resources/icons/html5.svg" alt="html5" />
-						</a>
-						<a href="https://www.w3schools.com/css/" target="_blank" title="CSS3">
-							<img src="resources/icons/css3.svg" alt="css3" />
+						<a href="https://www.python.org/" target="_blank" title="Python" class="skill-icon">
+							<img src="resources/icons/python.svg" alt="Python" />
+							<span>Python</span>
 						</a>
 					</div>
 				</div>
-				<div class="skills_tech">
-					<h3 align="center">Development Tools</h3>
-					<div class="skill-list">
-						<a href="https://git-scm.com/" target="_blank" title="Git">
-							<img src="resources/icons/git.svg" alt="git" />
-						</a>
-						<a href="https://www.docker.com/" target="_blank" title="Docker">
-							<img src="resources/icons/docker.svg" alt="docker" />
-						</a>
-						<a href="https://developer.android.com/studio" target="_blank" title="Android Studio">
-							<img src="resources/icons/android-studio.svg" alt="android studio" />
-						</a>
 
-						<a href="https://firebase.google.com/" target="_blank" title="Firebase">
-							<img src="resources/icons/firebase-icon.svg" alt="firebase" />
+				<div class="skills-category">
+					<h3>Databases & Search</h3>
+					<div class="skill-icons-group">
+						<a href="https://www.mysql.com/" target="_blank" title="MySQL" class="skill-icon">
+							<img src="resources/icons/mysql.svg" alt="MySQL" />
+							<span>MySQL</span>
 						</a>
-						<a href="https://aws.amazon.com" target="_blank" title="AWS">
-							<img src="resources/icons/aws.svg" alt="aws" />
+						<a href="https://www.postgresql.org/" target="_blank" title="PostgreSQL" class="skill-icon">
+							<img src="resources/icons/sql.svg" alt="PostgreSQL" />
+							<span>PostgreSQL</span>
 						</a>
-						<a href="https://cloud.google.com/" target="_blank" title="Google Cloud Platform">
-							<img src="resources/icons/gcp.svg" alt="google cloud platform" />
+						<a href="https://www.elastic.co/elasticsearch" target="_blank" title="Elasticsearch" class="skill-icon">
+							<img src="resources/icons/elasticsearch.svg" alt="Elasticsearch" />
+							<span>Elasticsearch</span>
+						</a>
+						<a href="https://firebase.google.com/" target="_blank" title="Firebase" class="skill-icon">
+							<img src="resources/icons/firebase-icon.svg" alt="Firebase" />
+							<span>Firebase</span>
+						</a>
+					</div>
+				</div>
+
+				<div class="skills-category">
+					<h3>Message Queue & Architecture</h3>
+					<div class="skill-icons-group">
+						<a href="https://www.rabbitmq.com/" target="_blank" title="RabbitMQ" class="skill-icon">
+							<img src="resources/icons/rabbitmq.svg" alt="RabbitMQ" />
+							<span>RabbitMQ</span>
+						</a>
+						<a href="https://grpc.io/" target="_blank" title="gRPC" class="skill-icon">
+							<img src="resources/icons/grpc.svg" alt="gRPC" />
+							<span>gRPC</span>
+						</a>
+						<a href="https://spring.io/projects/spring-security" target="_blank" title="Spring Security" class="skill-icon">
+							<img src="resources/icons/spring-security.png" alt="Spring Security" />
+							<span>Spring Security</span>
+						</a>
+						<a href="https://hibernate.org/orm/" target="_blank" title="Hibernate" class="skill-icon">
+							<img src="resources/icons/hibernate.svg" alt="Hibernate" />
+							<span>Hibernate</span>
+						</a>
+					</div>
+				</div>
+
+				<div class="skills-category">
+					<h3>Frontend & Web</h3>
+					<div class="skill-icons-group">
+						<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" title="JavaScript" class="skill-icon">
+							<img src="resources/icons/javascript.svg" alt="JavaScript" />
+							<span>JavaScript</span>
+						</a>
+						<a href="https://www.w3.org/html/" target="_blank" title="HTML5" class="skill-icon">
+							<img src="resources/icons/html5.svg" alt="HTML5" />
+							<span>HTML5</span>
+						</a>
+						<a href="https://www.w3schools.com/css/" target="_blank" title="CSS3" class="skill-icon">
+							<img src="resources/icons/css3.svg" alt="CSS3" />
+							<span>CSS3</span>
+						</a>
+					</div>
+				</div>
+
+				<div class="skills-category">
+					<h3>DevOps & Cloud</h3>
+					<div class="skill-icons-group">
+						<a href="https://git-scm.com/" target="_blank" title="Git" class="skill-icon">
+							<img src="resources/icons/git.svg" alt="Git" />
+							<span>Git</span>
+						</a>
+						<a href="https://www.docker.com/" target="_blank" title="Docker" class="skill-icon">
+							<img src="resources/icons/docker.svg" alt="Docker" />
+							<span>Docker</span>
+						</a>
+						<a href="https://aws.amazon.com" target="_blank" title="AWS" class="skill-icon">
+							<img src="resources/icons/aws.svg" alt="AWS" />
+							<span>AWS</span>
+						</a>
+						<a href="https://cloud.google.com/" target="_blank" title="Google Cloud Platform" class="skill-icon">
+							<img src="resources/icons/gcp.svg" alt="GCP" />
+							<span>GCP</span>
+						</a>
+					</div>
+				</div>
+
+				<div class="skills-category">
+					<h3>Development Tools</h3>
+					<div class="skill-icons-group">
+						<a href="https://developer.android.com/studio" target="_blank" title="Android Studio" class="skill-icon">
+							<img src="resources/icons/android-studio.svg" alt="Android Studio" />
+							<span>Android Studio</span>
+						</a>
+						<a href="https://www.jetbrains.com/idea/" target="_blank" title="IntelliJ IDEA" class="skill-icon">
+							<img src="resources/icons/java.svg" alt="IntelliJ IDEA" />
+							<span>IntelliJ IDEA</span>
 						</a>
 					</div>
 				</div>
@@ -306,176 +416,105 @@
 					</div>
 				</div>
 			</div>
-			<div class="projects-container">
+			<div class="projects-grid">
 
-				<div class="project-item">
-					<div class="image-section">
-						<img src="resources/screenshots/internet-speed-meter.png" alt="Internet Speed Meter">
+				<div class="project-card">
+					<div class="project-image">
+						<img src="resources/screenshots/internet-speed-meter.png" alt="Internet Speed Meter App">
 					</div>
-					<div class="project-info">
-						<h1>Internet Speed Meter</h1>
-						<div class="links">
-							<a class="play-store" target="_blank" href="https://play.google.com/store/apps/details?id=com.AFG.internetspeedmeter">
+					<div class="project-details">
+						<h3 class="project-title">Internet Speed Meter</h3>
+						<p class="project-description">A comprehensive app for monitoring internet speed and data usage in real-time. Features visual charts for data consumption tracking, app usage monitoring, and secure data storage for up to 30 days of historical analysis.</p>
+						<div class="project-highlight">
+							<i class='bx bxs-star'></i> <span>500k+ installs on Google Play Store</span>
+						</div>
+						<div class="project-links">
+							<a href="https://play.google.com/store/apps/details?id=com.AFG.internetspeedmeter" target="_blank" class="project-link play-store">
 								<i class='bx bxl-play-store'></i> Google Play Store
 							</a>
-							<a class="highlight">
-								<i class='bx bxs-star'></i> Highlight: <span>500k+</span> installs
-							</a>
 						</div>
-						<p>This app helps users monitor their internet speed and usage in real-time. It provides a
-							visual representation of data usage through a chart, and tracks app usage while securely
-							storing data for up to 30 days. With this app, users can gain insights into their internet
-							experience and make informed decisions about their data consumption.</p>
-						<div class="tech-stacks">
-							<h4>Tech Stacks</h4>
-							<div>
-								<a href="https://www.java.com/" target="_blank" title="Java">
-									<img src="resources/icons/java.svg" alt="java" />
-								</a>
-								<a href="https://developer.android.com/" target="_blank" title="Android">
-									<img src="resources/icons/android.svg" alt="android" />
-								</a>
-							</div>
+						<div class="project-tech">
+							<span class="tech-badge">Java</span>
+							<span class="tech-badge">Android</span>
 						</div>
 					</div>
 				</div>
 
-				<div class="project-item">
-					<div class="image-section">
-						<img src="resources/screenshots/open-solutions.png" alt="Open Solutions">
+				<div class="project-card">
+					<div class="project-image">
+						<img src="resources/screenshots/open-solutions.png" alt="Open Solutions Blog">
 					</div>
-					<div class="project-info">
-						<h1>Open Solutions</h1>
-						<div class="links">
-							<a class="github-repo" target="_blank" href="https://github.com/mazidul36i/Open-Soultions">
-								<i class='bx bxl-github'></i> Github repo
+					<div class="project-details">
+						<h3 class="project-title">Open Solutions</h3>
+						<p class="project-description">A tech blog documenting practical solutions to development challenges. Features include guides for installing Docker on Ubuntu, cloud deployment, and various tech tutorials. Built with Firebase Firestore, Storage, and Authentication for robust backend support.</p>
+						<div class="project-links">
+							<a href="https://github.com/mazidul36i/Open-Soultions" target="_blank" class="project-link github">
+								<i class='bx bxl-github'></i> Github Repository
 							</a>
-							<a class="open-solutions" target="_blank" href="https://opensolutions.web.app/">
-								<i class='bx bx-link-external'></i> Live URL
+							<a href="https://opensolutions.web.app/" target="_blank" class="project-link live">
+								<i class='bx bx-link-external'></i> Live Website
 							</a>
 						</div>
-						<p>Open Solutions is a tech blog where I document practical solutions to development challenges,
-							such as a guide to installing Docker Desktop on Ubuntu 24. The site uses Firebase Firestore,
-							Firebase Storage, and Firebase Authentication, built with HTML, CSS, JavaScript, and JQuery.
-							It showcases my ability to create user-focused solutions while maintaining a full-stack
-							approach.</p>
-						<div class="tech-stacks">
-							<h4>Tech Stacks</h4>
-							<div>
-								<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/" target="_blank" title="JavaScript">
-									<img src="resources/icons/javascript.svg" alt="javascript" />
-								</a>
-								<a href="https://www.w3.org/html/" target="_blank" title="HTML5">
-									<img src="resources/icons/html5.svg" alt="html5" />
-								</a>
-								<a href="https://www.w3schools.com/css/" target="_blank" title="CSS3">
-									<img src="resources/icons/css3.svg" alt="css3" />
-								</a>
-								<a href="https://firebase.google.com/" target="_blank" title="Firebase">
-									<img src="resources/icons/firebase-icon.svg" alt="firebase" />
-								</a>
-							</div>
+						<div class="project-tech">
+							<span class="tech-badge">JavaScript</span>
+							<span class="tech-badge">HTML5</span>
+							<span class="tech-badge">CSS3</span>
+							<span class="tech-badge">Firebase</span>
 						</div>
 					</div>
 				</div>
 
-				<div class="project-item">
-					<div class="image-section">
-						<img src="resources/marrs_bank.png" alt="MARRS Bank">
+				<div class="project-card">
+					<div class="project-image">
+						<img src="resources/marrs_bank.png" alt="MARRS Bank API">
 					</div>
-					<div class="project-info">
-						<h1>MARRS Bank</h1>
-						<div class="links">
-							<a class="github-repo" target="_blank" href="https://github.com/mazidul36i/marrsbank">
-								<i class='bx bxl-github'></i> Github repo
+					<div class="project-details">
+						<h3 class="project-title">MARRS Bank</h3>
+						<p class="project-description">A RESTful API backend for an Online Payment Wallet application. Implements core banking functionalities with complete CRUD operations and user validation at each step. Provides foundational operations for secure and efficient wallet management.</p>
+						<div class="project-links">
+							<a href="https://github.com/mazidul36i/marrsbank" target="_blank" class="project-link github">
+								<i class='bx bxl-github'></i> Github Repository
 							</a>
 						</div>
-						<p>MARRS Bank is a RESTful API for an Online Payment Wallet application. It implements core
-							banking functionalities, allowing users to perform essential CRUD operations while ensuring
-							user validation at each step. Though not a complete banking system, it provides the
-							foundational operations required for secure and efficient wallet management.</p>
-						<div class="tech-stacks">
-							<h4>Tech Stacks</h4>
-							<div>
-								<a href="https://www.java.com/" target="_blank" title="Java">
-									<img src="resources/icons/java.svg" alt="java" />
-								</a>
-								<a href="https://spring.io/" target="_blank" title="SpringBoot">
-									<img src="resources/icons/spring.svg" alt="spring" />
-								</a>
-								<a href="https://www.mysql.com/" target="_blank" title="MySQL">
-									<img src="resources/icons/mysql.svg" alt="mysql" />
-								</a>
-							</div>
+						<div class="project-tech">
+							<span class="tech-badge">Java</span>
+							<span class="tech-badge">Spring Boot</span>
+							<span class="tech-badge">MySQL</span>
 						</div>
 					</div>
 				</div>
 
-				<div class="project-item">
-					<div class="project-info w-100-percent">
-						<h1>JWT Spring Security</h1>
-						<div class="links">
-							<a class="github-repo" target="_blank" href="https://github.com/mazidul36i/jwt-spring-security">
-								<i class='bx bxl-github'></i> Github repo
+				<div class="project-card full-width">
+					<div class="project-details full-content">
+						<h3 class="project-title">JWT Spring Security</h3>
+						<p class="project-description">A Spring Boot application implementing JWT-based authentication and role-based authorization using Spring Security. Provides a robust foundation for securing RESTful APIs with support for multiple SQL databases (MySQL, PostgreSQL, etc.). Demonstrates proficiency in implementing secure authentication mechanisms and managing user roles in enterprise applications.</p>
+						<div class="project-links">
+							<a href="https://github.com/mazidul36i/jwt-spring-security" target="_blank" class="project-link github">
+								<i class='bx bxl-github'></i> Github Repository
 							</a>
 						</div>
-						<p>The <span class="highlight">jwt-spring-security</span> project is a Spring Boot application
-							that implements JWT-based authentication and role-based authorization using Spring Security.
-							It provides a robust foundation for securing RESTful APIs by ensuring that only
-							authenticated users with appropriate roles can access specific resources. The application is
-							configured to be able to connect with any SQL database like MySQL, PostgreSQL, etc. The
-							database connection properties are specified in the <span class="highlight">application.properties</span> file. This project
-							demonstrates proficiency in implementing secure authentication mechanisms and managing user
-							roles within a Spring Boot environment.</p>
-						<div class="tech-stacks">
-							<h4>Tech Stacks</h4>
-							<div>
-								<a href="https://www.java.com/" target="_blank" title="Java">
-									<img src="resources/icons/java.svg" alt="java" />
-								</a>
-								<a href="https://spring.io/" target="_blank" title="SpringBoot">
-									<img src="resources/icons/spring.svg" alt="spring" />
-								</a>
-								<a href="https://spring.io/projects/spring-security" target="_blank" title="Spring Security">
-									<img src="resources/icons/spring-security.png" alt="spring security" />
-								</a>
-								<a href="https://www.mysql.com/" target="_blank" title="MySQL">
-									<img src="resources/icons/mysql.svg" alt="mysql" />
-								</a>
-							</div>
+						<div class="project-tech">
+							<span class="tech-badge">Java</span>
+							<span class="tech-badge">Spring Boot</span>
+							<span class="tech-badge">Spring Security</span>
+							<span class="tech-badge">MySQL/PostgreSQL</span>
 						</div>
 					</div>
 				</div>
 
-				<div class="project-item">
-					<div class="project-info w-100-percent">
-						<h1>Better TPA</h1>
-						<div class="links">
-							<a class="github-repo" target="_blank" href="https://github.com/mazidul36i/BetterTPA">
-								<i class='bx bxl-github'></i> Github repo
+				<div class="project-card full-width">
+					<div class="project-details full-content">
+						<h3 class="project-title">Better TPA - Minecraft Plugin</h3>
+						<p class="project-description">An open-source Minecraft server plugin that simplifies player teleportation and warp management. Integrates seamlessly with the Minecraft Paper framework for compatibility across server environments. The open-source approach enables community contributions, fostering collaboration for ongoing development, new features, and bug fixes.</p>
+						<div class="project-links">
+							<a href="https://github.com/mazidul36i/BetterTPA" target="_blank" class="project-link github">
+								<i class='bx bxl-github'></i> Github Repository
 							</a>
 						</div>
-						<p>The <span class="highlight">BetterTPA</span> plugin enhances Minecraft servers by simplifying
-							player teleportation and warp management. It integrates smoothly with the
-							<span class="highlight">Minecraft Paper framework</span>, ensuring compatibility across
-							various server environments. By making the repository <span class="highlight">open source</span>
-							, I have enabled the community to contribute to its ongoing development. This openness
-							encourages collaboration, allowing others to add new features, perform bug fixes, and ensure
-							long-term support for the plugin. Such an approach not only extends the plugin's
-							functionality but also fosters a collaborative environment where developers can learn from
-							each other and improve the software collectively. This project reflects an ability to
-							address <span class="highlight">niche challenges</span> through custom software development,
-							demonstrating versatility and a user-centric approach in providing effective solutions.</p>
-						<div class="tech-stacks">
-							<h4>Tech Stacks</h4>
-							<div>
-								<a href="https://www.java.com/" target="_blank" title="Java">
-									<img src="resources/icons/java.svg" alt="java" />
-								</a>
-								<a href="https://papermc.io/" target="_blank" title="PaperMC">
-									<img src="resources/icons/papermc.webp" alt="papermc" />
-								</a>
-							</div>
+						<div class="project-tech">
+							<span class="tech-badge">Java</span>
+							<span class="tech-badge">Minecraft PaperMC</span>
+							<span class="tech-badge">Plugin Development</span>
 						</div>
 					</div>
 				</div>
@@ -486,85 +525,68 @@
 	<!-------Projects Section End------>
 
 	<!---------Contact Section Start--------->
-	<section class="contact section-padding" data-scroll-index="5">
+	<section class="contact section-padding" id="contact" data-scroll-index="5">
 		<div class="container">
 			<div class="row justify-content-center">
 				<div class="col-lg-8">
 					<div class="section-title">
-						<h2>get in <span>touch</span></h2>
+						<h2>Get in <span>Touch</span></h2>
 					</div>
 				</div>
 			</div>
-			<div class="row">
-				<div class="col-lg-4 col-md-5">
-					<div class="contact-info">
-						<h3>For Any Queries and Support</h3>
-						<div class="resume-btn">
-							<a href="/Mazidul_Islam_Resume_Software_Engineer.pdf" target="_blank" class="btn btn-1">Resume</a>
-						</div>
-						<div class="contact-info-item email">
+			<div class="contact-wrapper">
+				<div class="contact-sidebar">
+					<div class="contact-card">
+						<h3>Ready to collaborate?</h3>
+						<p>Feel free to reach out for any inquiries, opportunities, or just to say hello!</p>
+						<a href="/Mazidul_Islam_Resume_Software_Engineer.pdf" target="_blank" class="btn btn-1">
+							<i class='bx bx-file'></i> View Resume
+						</a>
+					</div>
+					<div class="contact-info-list">
+						<div class="contact-info-item">
 							<i class='bx bx-envelope'></i>
-							<h4>Write to me at</h4>
-							<p><a href="mailto:connect@mazidul.com" target="_blank"
-									title="My email">connect@mazidul.com</a></p>
+							<div>
+								<h4>Email</h4>
+								<a href="mailto:connect@mazidul.com" target="_blank">connect@mazidul.com</a>
+							</div>
 						</div>
-						<!-- <div class="contact-info-item mobile">
-							<i class='bx bx-phone'></i>
-							<h4>Phone</h4>
-							<p><a title="My mobile">+91 6002601821</a></p>
-						</div> -->
 						<div class="contact-info-item">
 							<i class='bx bxl-github'></i>
-							<h4>GitHub profile</h4>
-							<p><a target="_blank" href="https://github.com/mazidul36i"
-									title="My GitHub profile">github.com/mazidul36i</a></p>
+							<div>
+								<h4>GitHub</h4>
+								<a href="https://github.com/mazidul36i" target="_blank">github.com/mazidul36i</a>
+							</div>
 						</div>
-						<div class="contact-info-item linkedin">
+						<div class="contact-info-item">
 							<i class='bx bxl-linkedin'></i>
-							<h4>LinkedIn Profile</h4>
-							<p><a target="_blank" href="https://www.linkedin.com/in/mazidul36i/"
-									title="LinkedIn profile">linkedin.com/in/mazidul36i</a></p>
+							<div>
+								<h4>LinkedIn</h4>
+								<a href="https://www.linkedin.com/in/mazidul36i/" target="_blank">linkedin.com/in/mazidul36i</a>
+							</div>
 						</div>
 					</div>
 				</div>
-				<div class="col-lg-8 col-md-7">
-					<div class="contact-form">
+
+				<div class="contact-form-wrapper">
+					<div class="form-card">
+						<h3>Send me a message</h3>
 						<form id="email_form">
-							<div class="row">
-								<div class="col-lg-6">
-									<div class="form-group">
-										<input id="name" type="text" name="name" placeholder="Your Name"
-											class="form-control" required title="What may I call you?">
-									</div>
-								</div>
-								<div class="col-lg-6">
-									<div class="form-group">
-										<input id="email" type="email" name="email" placeholder="Your Email"
-											class="form-control" required title="How can I reach you?">
-									</div>
-								</div>
+							<div class="form-group">
+								<input id="name" type="text" name="name" placeholder="Your Name" class="form-control" required title="What may I call you?">
 							</div>
-							<div class="row">
-								<div class="col-lg-12">
-									<div class="form-group">
-										<input id="subject" type="text" name="subject" placeholder="Subject (optional)"
-											class="form-control" title="What's on your mind?">
-									</div>
-								</div>
+							<div class="form-group">
+								<input id="email" type="email" name="email" placeholder="Your Email" class="form-control" required title="How can I reach you?">
 							</div>
-							<div class="row">
-								<div class="col-lg-12">
-									<div class="form-group">
-										<textarea id="message" name="message" placeholder="Your Message (10-2000 char)"
-											class="form-control" required minlength="10" maxlength="2000" title="Write a message for me"></textarea>
-									</div>
-								</div>
+							<div class="form-group">
+								<input id="subject" type="text" name="subject" placeholder="Subject (Optional)" class="form-control" title="What's on your mind?">
 							</div>
-							<div class="row">
-								<div class="col-lg-12">
-									<button id="submit" type="submit" class="btn btn-2">Send Message</button>
-								</div>
+							<div class="form-group">
+								<textarea id="message" name="message" placeholder="Your Message (10-2000 characters)" class="form-control" required minlength="10" maxlength="2000" rows="6" title="Write a message for me"></textarea>
 							</div>
+							<button id="submit" type="submit" class="btn btn-2 w-100">
+								<i class='bx bx-send'></i> Send Message
+							</button>
 						</form>
 					</div>
 				</div>
@@ -572,7 +594,6 @@
 		</div>
 	</section>
 	<!---------Contact Section End---------->
-
 	<!--------Footer Section Start--------->
 	<footer class="footer">
 		<p class="copyright-text">Copyright &copy; Designed and created by <a href="https://github.com/mazidul36i"
