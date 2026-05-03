@@ -718,6 +718,10 @@ body.dark .about-me .profile {
                     gap: 8px;
                     margin-left: 18px;
                     list-style: square;
+
+                    li {
+                        text-align: justify;
+                    }
                 }
             }
         }
