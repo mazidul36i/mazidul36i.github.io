@@ -75,7 +75,7 @@ export function Experience({ workSubtitle, highlightCount }: ExperienceProps) {
 
         <div className="exp-list">
           {bullets.map((b, idx) => (
-            <div className="exp-item fade-up" key={b.i + "-" + idx}>
+            <div className="exp-item" key={b.i + "-" + idx}>
               <div className="idx mono">/{String(b.i + 1).padStart(2, "0")}</div>
               <div className="body">
                 <h4>

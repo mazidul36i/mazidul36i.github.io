@@ -90,6 +90,17 @@
   padding: 28px 0;
   border-top: 1px solid var(--rule-2);
   align-items: start;
+  animation: exp-item-in 0.5s ease both;
+}
+@keyframes exp-item-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 .exp-item:first-child {
   border-top: none;
