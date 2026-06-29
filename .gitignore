@@ -68,5 +68,8 @@ node_modules/
 # dataconnect generated files
 .dataconnect
 
+# Build output
+public/
+
 # IDE
 .idea/**
