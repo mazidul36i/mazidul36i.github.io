@@ -15,9 +15,23 @@ interface ProjectCardProps {
 }
 
 const DURATION = 620;
+const EASE = "cubic-bezier(0.65, 0, 0.35, 1)";
+/** Transition used for the two interior panels while they reflow. */
+const CHILD_TRANSITION = ["top", "left", "width", "height", "border-radius"]
+  .map((p) => `${p} ${DURATION}ms ${EASE}`)
+  .join(", ");
+const RADIUS_COMPACT = "16px";
+const RADIUS_EXPANDED = "0px"; // the card's own 24px clip supplies the outer rounding
+
+interface Box {
+  top: number;
+  left: number;
+  width: number;
+  height: number;
+}
 
 /** The centered resting rect the card morphs into when expanded. */
-function expandedRect() {
+function expandedRect(): Box {
   const w = Math.min(window.innerWidth * 0.86, 1180);
   const h = Math.min(window.innerHeight * 0.82, 820);
   return {
@@ -28,17 +42,34 @@ function expandedRect() {
   };
 }
 
-function setBox(el: HTMLElement, top: number, left: number, width: number, height: number) {
-  el.style.top = `${top}px`;
-  el.style.left = `${left}px`;
-  el.style.width = `${width}px`;
-  el.style.height = `${height}px`;
+/** A child's border-box measured relative to its card's border-box. */
+function relBox(r: DOMRect, base: DOMRect): Box {
+  return { top: r.top - base.top, left: r.left - base.left, width: r.width, height: r.height };
+}
+
+function setBox(el: HTMLElement, b: Box) {
+  el.style.top = `${b.top}px`;
+  el.style.left = `${b.left}px`;
+  el.style.width = `${b.width}px`;
+  el.style.height = `${b.height}px`;
 }
 
 function clearBox(el: HTMLElement) {
-  for (const prop of ["position", "top", "left", "width", "height", "transition", "willChange"]) {
-    el.style.removeProperty(prop.replace(/([A-Z])/g, "-$1").toLowerCase());
+  for (const prop of ["position", "top", "left", "width", "height", "transition", "will-change"]) {
+    el.style.removeProperty(prop);
   }
+}
+
+/** Pin a panel out of flow at a card-relative box so it can be FLIP-animated. */
+function placeChild(el: HTMLElement, b: Box, radius: string) {
+  el.style.position = "absolute";
+  el.style.borderRadius = radius;
+  setBox(el, b);
+}
+
+function clearChild(el: HTMLElement) {
+  clearBox(el);
+  el.style.removeProperty("border-radius");
 }
 
 /**
@@ -57,7 +88,12 @@ export function ProjectCard({
 }: ProjectCardProps) {
   const cellRef = useRef<HTMLDivElement>(null);
   const cardRef = useRef<HTMLAnchorElement>(null);
+  const previewRef = useRef<HTMLDivElement>(null);
+  const infoRef = useRef<HTMLDivElement>(null);
   const timer = useRef<number | undefined>(undefined);
+  // Compact card-relative boxes of the two panels, captured on expand so the
+  // collapse can animate them back without re-measuring the compact layout.
+  const compactGeom = useRef<{ preview: Box; info: Box } | null>(null);
   // Kept in state so React never re-renders the class off mid-animation, but
   // also toggled imperatively below to avoid a one-frame flash on collapse.
   const [expanded, setExpanded] = useState(false);
@@ -65,7 +101,9 @@ export function ProjectCard({
   useLayoutEffect(() => {
     const card = cardRef.current;
     const cell = cellRef.current;
-    if (!card || !cell) return;
+    const preview = previewRef.current;
+    const info = infoRef.current;
+    if (!card || !cell || !preview || !info) return;
     clearTimeout(timer.current);
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
@@ -74,6 +112,10 @@ export function ProjectCard({
       // Measure and freeze the slot BEFORE the card leaves the flow, otherwise
       // the cell collapses and both the frozen height and start rect are wrong.
       const from = cell.getBoundingClientRect();
+      const previewFrom = relBox(preview.getBoundingClientRect(), from);
+      const infoFrom = relBox(info.getBoundingClientRect(), from);
+      compactGeom.current = { preview: previewFrom, info: infoFrom };
+
       cell.style.height = `${from.height}px`; // freeze the slot so siblings hold
       setExpanded(true);
       card.classList.add("is-expanded");
@@ -81,34 +123,77 @@ export function ProjectCard({
 
       card.style.position = "fixed";
       card.style.willChange = "top, left, width, height";
-      if (reduce) {
-        card.style.transition = "none";
-        setBox(card, to.top, to.left, to.width, to.height);
-        return;
-      }
+
+      // Snap the card to its final size so the panels' expanded grid positions
+      // can be measured, then rewind everything to the compact geometry.
       card.style.transition = "none";
-      setBox(card, from.top, from.left, from.width, from.height);
+      setBox(card, to);
+      const cardTo = card.getBoundingClientRect();
+      const previewTo = relBox(preview.getBoundingClientRect(), cardTo);
+      const infoTo = relBox(info.getBoundingClientRect(), cardTo);
+
+      if (reduce) {
+        card.style.removeProperty("transition");
+        return; // panels stay in their grid slots at full size
+      }
+
+      setBox(card, from);
+      preview.style.transition = "none";
+      info.style.transition = "none";
+      placeChild(preview, previewFrom, RADIUS_COMPACT);
+      placeChild(info, infoFrom, RADIUS_COMPACT);
       card.getBoundingClientRect(); // force the start frame
+
       requestAnimationFrame(() => {
         card.style.removeProperty("transition"); // fall back to the CSS transition
-        setBox(card, to.top, to.left, to.width, to.height);
+        setBox(card, to);
+        preview.style.transition = CHILD_TRANSITION;
+        info.style.transition = CHILD_TRANSITION;
+        placeChild(preview, previewTo, RADIUS_EXPANDED);
+        placeChild(info, infoTo, RADIUS_EXPANDED);
+        // Hand the panels back to the grid once settled so they stay responsive.
+        timer.current = window.setTimeout(() => {
+          clearChild(preview);
+          clearChild(info);
+        }, DURATION + 40);
       });
     } else {
       // --- collapse: animate back into the (still-reserved) grid slot ---
       if (!card.classList.contains("is-expanded")) return;
       const to = cell.getBoundingClientRect();
+      const compact = compactGeom.current;
       const finish = () => {
         clearBox(card);
+        clearChild(preview);
+        clearChild(info);
         card.classList.remove("is-expanded");
         cell.style.removeProperty("height");
         setExpanded(false);
       };
-      if (reduce) {
+      if (reduce || !compact) {
         finish();
         return;
       }
-      card.style.removeProperty("transition");
-      setBox(card, to.top, to.left, to.width, to.height);
+
+      // Pin the panels at wherever they are now (grid or mid-flight), then send
+      // them back to their compact boxes in step with the shrinking card.
+      const cardNow = card.getBoundingClientRect();
+      const previewNow = relBox(preview.getBoundingClientRect(), cardNow);
+      const infoNow = relBox(info.getBoundingClientRect(), cardNow);
+      preview.style.transition = "none";
+      info.style.transition = "none";
+      placeChild(preview, previewNow, RADIUS_EXPANDED);
+      placeChild(info, infoNow, RADIUS_EXPANDED);
+      card.getBoundingClientRect(); // force the start frame
+
+      requestAnimationFrame(() => {
+        card.style.removeProperty("transition");
+        setBox(card, to);
+        preview.style.transition = CHILD_TRANSITION;
+        info.style.transition = CHILD_TRANSITION;
+        placeChild(preview, compact.preview, RADIUS_COMPACT);
+        placeChild(info, compact.info, RADIUS_COMPACT);
+      });
       timer.current = window.setTimeout(finish, DURATION + 40);
     }
   }, [active]);
@@ -140,7 +225,7 @@ export function ProjectCard({
           <Close size={16} />
         </span>
 
-        <div className="proj-preview">
+        <div className="proj-preview" ref={previewRef}>
           <ProjectPreview project={project} />
           <span className="pp-expand">
             <Expand size={14} />
@@ -148,7 +233,7 @@ export function ProjectCard({
           </span>
         </div>
 
-        <div className="proj-info">
+        <div className="proj-info" ref={infoRef}>
           <div className="proj-info-top">
             <span className="proj-pill">{project.em}</span>
             <span className="proj-arrow">
