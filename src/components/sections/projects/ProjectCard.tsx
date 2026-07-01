@@ -6,7 +6,7 @@ import { ProjectPreview } from "./ProjectPreview";
 interface ProjectCardProps {
   project: Project;
   hue: number;
-  onOpen: () => void;
+  onOpen: (rect: DOMRect) => void;
   onScheduleClose: () => void;
 }
 
@@ -18,7 +18,7 @@ export function ProjectCard({ project, hue, onOpen, onScheduleClose }: ProjectCa
       rel="noreferrer"
       className="proj-card fade-up"
       style={{ "--h": hue } as CSSProperties}
-      onMouseEnter={onOpen}
+      onMouseEnter={(e) => onOpen(e.currentTarget.getBoundingClientRect())}
       onMouseLeave={onScheduleClose}
     >
       <div className="proj-preview">
