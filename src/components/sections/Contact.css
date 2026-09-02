@@ -1,0 +1,89 @@
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 64px;
+  align-items: start;
+}
+@media (max-width: 860px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+.contact-headline {
+  font-family: var(--sans);
+  font-size: clamp(40px, 6vw, 88px);
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  font-weight: 500;
+  margin: 0 0 32px;
+}
+.contact-headline .em {
+  font-family: var(--serif);
+  font-style: italic;
+  color: var(--accent);
+  font-weight: 400;
+}
+.contact-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 22px 0;
+  border-top: 1px solid var(--rule);
+  font-family: var(--mono);
+  font-size: 14px;
+  color: var(--ink);
+  transition: padding 0.25s ease, color 0.25s ease;
+}
+.contact-link:last-child {
+  border-bottom: 1px solid var(--rule);
+}
+.contact-link:hover {
+  padding-left: 12px;
+  color: var(--accent);
+}
+.contact-link .key {
+  font-size: 11px;
+  color: var(--ink-3);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.contact-link-val {
+  font-size: 18px;
+  margin-top: 6px;
+}
+.contact-link .arrow {
+  display: inline-flex;
+  transition: transform 0.25s ease;
+}
+.contact-link:hover .arrow {
+  transform: translate(4px, -4px);
+}
+
+.contact-side {
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  padding: 28px;
+  background: var(--bg-elev);
+}
+.contact-side h4 {
+  font-size: 14px;
+  font-weight: 500;
+  margin: 0 0 16px;
+  color: var(--ink);
+  font-family: var(--mono);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.contact-side-h {
+  margin-top: 24px !important;
+}
+.contact-side p {
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--ink-2);
+  margin: 0 0 20px;
+}
+.contact-inline-email {
+  color: var(--ink);
+}

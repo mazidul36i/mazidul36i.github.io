@@ -1,0 +1,309 @@
+/* ============================================================
+   Spotlight hero — split copy/portrait with floating stat cards.
+   ============================================================ */
+
+.spot-hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 150px 0 90px;
+  overflow: hidden;
+  background: oklch(0.145 0.01 260);
+  color: oklch(0.97 0.005 255);
+}
+.spot-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background:
+    radial-gradient(60% 55% at 78% 42%, oklch(0.42 0.13 260 / 0.5), transparent 70%),
+    radial-gradient(80% 70% at 50% 120%, oklch(0.3 0.08 260 / 0.5), transparent 70%);
+  pointer-events: none;
+}
+.spot-grid {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1.02fr 1fr;
+  gap: 40px;
+  align-items: center;
+  width: 100%;
+}
+
+/* ---- left copy ---- */
+.spot-copy {
+  max-width: 620px;
+}
+.spot-title {
+  margin: 0;
+}
+.spot-title .lead {
+  display: block;
+  font-family: var(--sans);
+  font-size: clamp(28px, 3.4vw, 46px);
+  font-weight: 400;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  color: oklch(0.88 0.008 255);
+}
+.spot-title .big {
+  display: block;
+  font-family: var(--sans);
+  font-style: italic;
+  font-weight: 800;
+  font-size: clamp(34px, 4.6vw, 64px);
+  line-height: 1.02;
+  letter-spacing: -0.035em;
+  color: oklch(0.99 0.004 255);
+  margin-top: 6px;
+  white-space: nowrap;
+}
+.spot-sub {
+  font-family: var(--sans);
+  font-size: clamp(16px, 1.3vw, 19px);
+  line-height: 1.55;
+  color: oklch(0.7 0.01 255);
+  margin: 28px 0 0;
+  max-width: 44ch;
+  text-wrap: pretty;
+}
+.spot-actions {
+  display: flex;
+  gap: 16px;
+  margin-top: 40px;
+  flex-wrap: wrap;
+}
+.spot-btn {
+  font-family: var(--sans);
+  font-size: 16px;
+  font-weight: 600;
+  padding: 16px 34px;
+  border-radius: 999px;
+  transition: transform 0.2s ease, filter 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+}
+.spot-btn.primary {
+  color: #fff;
+  background: linear-gradient(180deg, oklch(0.64 0.2 258), oklch(0.54 0.22 262));
+  box-shadow: 0 14px 34px -12px oklch(0.55 0.22 262 / 0.95), inset 0 1px 0 oklch(1 0 0 / 0.25);
+}
+.spot-btn.primary:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.08);
+}
+.spot-btn.ghost {
+  color: oklch(0.92 0.008 255);
+  background: oklch(0.3 0.012 255 / 0.55);
+  border: 1px solid oklch(0.5 0.02 255 / 0.4);
+}
+.spot-btn.ghost:hover {
+  transform: translateY(-2px);
+  background: oklch(0.36 0.012 255 / 0.7);
+}
+.spot-btn.link {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  color: oklch(0.82 0.09 258);
+  background: oklch(0.5 0.18 262 / 0.12);
+  border: 1px solid oklch(0.6 0.16 262 / 0.45);
+  box-shadow: inset 0 1px 0 oklch(1 0 0 / 0.06), 0 0 0 0 oklch(0.6 0.18 262 / 0);
+}
+.spot-btn.link svg {
+  transition: transform 0.2s ease;
+}
+.spot-btn.link:hover {
+  transform: translateY(-2px);
+  color: #fff;
+  background: oklch(0.5 0.18 262 / 0.22);
+  border-color: oklch(0.66 0.18 262 / 0.7);
+  box-shadow: 0 12px 30px -14px oklch(0.55 0.22 262 / 0.9);
+}
+.spot-btn.link:hover svg {
+  transform: translate(2px, -2px);
+}
+
+/* ---- right portrait stage ---- */
+.spot-stage {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  display: grid;
+  place-items: center;
+}
+.spot-ring {
+  position: absolute;
+  width: 86%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 1px solid oklch(0.55 0.04 258 / 0.25);
+  box-shadow: inset 0 0 80px oklch(0.5 0.1 260 / 0.15);
+}
+.spot-glow {
+  position: absolute;
+  width: 78%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle, oklch(0.5 0.16 262 / 0.55), transparent 68%);
+  filter: blur(10px);
+}
+.spot-portrait {
+  position: relative;
+  width: 70%;
+  max-width: 440px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 30px 70px -24px oklch(0.4 0.12 262 / 0.7);
+}
+.spot-portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 18%;
+}
+.spot-portrait .sp-tint {
+  position: absolute;
+  inset: 0;
+  background: oklch(0.5 0.18 262);
+  mix-blend-mode: soft-light;
+  opacity: 0.85;
+}
+.spot-portrait .sp-vignette {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(70% 70% at 50% 42%, transparent 52%, oklch(0.13 0.02 260 / 0.55) 100%),
+    linear-gradient(180deg, transparent 55%, oklch(0.12 0.02 260 / 0.65) 100%);
+}
+
+/* ---- floating stat cards ---- */
+.stat-card {
+  width: max-content;
+  min-width: 150px;
+  padding: 16px 20px;
+  border-radius: 18px;
+  background: oklch(0.24 0.015 258 / 0.45);
+  border: 1px solid oklch(0.55 0.02 258 / 0.32);
+  box-shadow: 0 16px 40px -20px oklch(0 0 0 / 0.8), inset 0 1px 0 oklch(1 0 0 / 0.06);
+  backdrop-filter: blur(14px) saturate(130%);
+  -webkit-backdrop-filter: blur(14px) saturate(130%);
+}
+a.stat-card--link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+.spot-stage a.stat-card--link:hover {
+  border-color: oklch(0.7 0.02 258 / 0.6);
+  box-shadow: 0 22px 52px -20px oklch(0 0 0 / 0.85), inset 0 1px 0 oklch(1 0 0 / 0.1);
+}
+.stat-card .sc-num {
+  font-family: var(--sans);
+  font-size: 34px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  color: oklch(0.99 0.004 255);
+}
+.stat-card .sc-label {
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 400;
+  color: oklch(0.74 0.01 255);
+  margin-top: 8px;
+}
+.spot-stage .stat-card {
+  position: absolute;
+  z-index: 3;
+  animation: cardbob 6s ease-in-out infinite;
+}
+.spot-stage .pos-1 {
+  top: 18%;
+  left: -6%;
+  animation-delay: -0.4s;
+}
+.spot-stage .pos-2 {
+  top: 4%;
+  right: -8%;
+  animation-delay: -2.1s;
+}
+.spot-stage .pos-3 {
+  bottom: 16%;
+  left: -10%;
+  animation-delay: -3.4s;
+}
+.spot-stage .pos-4 {
+  bottom: 1%;
+  right: -6%;
+  animation-delay: -1.4s;
+}
+@keyframes cardbob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-9px);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .spot-stage .stat-card {
+    animation: none;
+  }
+}
+
+/* ---- mobile fallback stats ---- */
+.spot-stats-mobile {
+  display: none;
+  position: relative;
+  z-index: 2;
+  margin-top: 44px;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+@media (max-width: 1000px) {
+  .spot-stage .stat-card {
+    min-width: 128px;
+    padding: 14px 16px;
+  }
+  .spot-stage .sc-num {
+    font-size: 28px;
+  }
+  .spot-stage .sc-label {
+    font-size: 12.5px;
+  }
+}
+@media (max-width: 860px) {
+  .spot-grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+    justify-items: center;
+    text-align: center;
+  }
+  .spot-copy {
+    max-width: 600px;
+  }
+  .spot-sub {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .spot-actions {
+    justify-content: center;
+  }
+  .spot-stage {
+    width: min(420px, 80vw);
+  }
+  .spot-stage .stat-card {
+    display: none;
+  }
+  .spot-stats-mobile {
+    display: grid;
+  }
+  .spot-stats-mobile .stat-card {
+    text-align: left;
+  }
+}

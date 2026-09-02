@@ -1,11 +1,30 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="refresh" content="0; URL='https://mazidul.com'">
-    <title>Redirecting...</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mazidul Islam — Software Engineer</title>
+  <meta name="description" content="Mazidul Islam — Software Engineer. Backend systems, AI tooling and data-quality engines on Spring Boot, PostgreSQL, Elasticsearch." />
+  <link rel="icon" type="image/jpg" href="/assets/profile.jpg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@1,6..72,400;1,6..72,500&display=swap" rel="stylesheet" />
+
+  <script>
+    // Set theme before first paint so no color/background transition fires on load
+    (function () {
+      try {
+        var s = localStorage.getItem("portfolio-theme") || "dark";
+        document.documentElement.setAttribute("data-theme", s);
+      } catch (e) {
+        document.documentElement.setAttribute("data-theme", "dark");
+      }
+    })();
+  </script>
 </head>
 <body>
-<p>If you are not redirected automatically, follow this <a href="https://mazidul.com">link to my portfolio</a>. Thank You</p>
+  <div id="root"></div>
+  <script type="module" src="/src/main.tsx"></script>
 </body>
 </html>

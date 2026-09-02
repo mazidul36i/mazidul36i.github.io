@@ -68,5 +68,10 @@ node_modules/
 # dataconnect generated files
 .dataconnect
 
+# Build output
+dist/
+
 # IDE
 .idea/**
+# TypeScript incremental build info
+*.tsbuildinfo

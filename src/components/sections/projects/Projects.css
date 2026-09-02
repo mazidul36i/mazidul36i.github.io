@@ -1,0 +1,600 @@
+/* ============================================================
+   Projects — card grid, browser-mockup preview, expand overlay.
+   ============================================================ */
+
+.proj-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 44px 28px;
+}
+
+@media (max-width: 760px) {
+  .proj-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+}
+
+.proj-cell {
+  position: relative;
+}
+
+.proj-card {
+  display: block;
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.45s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.proj-card:not(.is-expanded):hover {
+  transform: translateY(-6px);
+}
+
+/* --- expanded: the same card, morphed into the centered detail panel --- */
+.proj-card.is-expanded {
+  position: fixed;
+  z-index: 320;
+  display: grid;
+  grid-template-columns: 1.12fr 0.88fr;
+  overflow: hidden;
+  background: var(--bg-elev);
+  border: 1px solid var(--rule);
+  border-radius: 24px;
+  box-shadow: 0 50px 130px -34px oklch(0 0 0 / 0.72);
+  transform: none;
+  transition:
+    top 0.62s cubic-bezier(0.65, 0, 0.35, 1),
+    left 0.62s cubic-bezier(0.65, 0, 0.35, 1),
+    width 0.62s cubic-bezier(0.65, 0, 0.35, 1),
+    height 0.62s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+/* --- browser-mockup preview --- */
+.proj-preview {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--rule);
+  box-shadow: var(--shadow);
+  aspect-ratio: 16 / 11;
+  display: flex;
+  flex-direction: column;
+  background: oklch(0.24 0.04 var(--h, 45));
+}
+
+.pp-chrome {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 16px;
+  background: oklch(0.27 0.035 var(--h, 45));
+  border-bottom: 1px solid oklch(1 0 0 / 0.08);
+}
+
+.pp-dots {
+  display: flex;
+  gap: 6px;
+}
+
+.pp-dots i {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: oklch(1 0 0 / 0.22);
+}
+
+.pp-url {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: oklch(1 0 0 / 0.55);
+  background: oklch(1 0 0 / 0.07);
+  padding: 5px 16px;
+  border-radius: 999px;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.pp-cover {
+  position: relative;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 22px 26px 26px;
+  color: #fff;
+  background:
+    radial-gradient(130% 120% at 50% 135%, oklch(0.66 0.16 var(--h, 45) / 0.6), transparent 62%),
+    linear-gradient(165deg, oklch(0.36 0.06 var(--h, 45)), oklch(0.2 0.04 var(--h, 45)));
+}
+
+/* --- real screenshot, when the project has a poster --- */
+.pp-cover.has-shot {
+  padding: 0;
+  overflow: hidden;
+}
+
+/* Frame: gains an inset while expanded; box: the rounded, clipped image. Both
+   transition in step with the card's FLIP morph (same duration and easing). */
+.pp-shot-frame {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  transition: padding 0.62s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.pp-shot-box {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 0;
+  box-shadow: 0 0 0 0 oklch(0 0 0 / 0);
+  transition:
+    border-radius 0.62s cubic-bezier(0.65, 0, 0.35, 1),
+    box-shadow 0.62s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.pp-shot {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: left top;
+  user-select: none;
+  transform-origin: top left;
+  transition: transform 0.6s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.proj-card:not(.is-expanded):hover .pp-shot {
+  transform: scale(1.03);
+}
+
+/* Expanded: the panel is tall and narrow, so the page sits as a rounded 16:9
+   plate on the hued ground instead of being cropped to a sliver. At compact
+   size a 16:9 plate capped to the cover height is exactly the full fill, so
+   the switch itself is seamless — only the inset and radius animate. */
+.proj-card.is-expanded .pp-shot-frame {
+  padding: clamp(16px, 4%, 40px);
+}
+
+.proj-card.is-expanded .pp-shot-box {
+  height: auto;
+  max-height: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 12px;
+  box-shadow: 0 24px 60px -18px oklch(0 0 0 / 0.6);
+}
+
+.proj-card.is-expanded .pp-shot {
+  transform: none;
+}
+
+/* Collapsing: animate the inset and radius back out while the card shrinks. */
+.proj-card.is-collapsing .pp-shot-frame {
+  padding: 0;
+}
+
+.proj-card.is-collapsing .pp-shot-box {
+  border-radius: 0;
+  box-shadow: 0 0 0 0 oklch(0 0 0 / 0);
+}
+
+.pp-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.pp-wordmark {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: oklch(1 0 0 / 0.92);
+}
+
+.pp-wordmark .m {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: oklch(1 0 0 / 0.85);
+}
+
+.pp-visit {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.04em;
+  color: oklch(1 0 0 / 0.6);
+}
+
+.pp-hero {
+  margin-top: auto;
+}
+
+.pp-hero h4 {
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: clamp(20px, 3.2vw, 30px);
+  line-height: 1;
+  letter-spacing: -0.03em;
+  margin: 0;
+  color: #fff;
+  text-wrap: balance;
+}
+
+.pp-sub {
+  font-size: 11px;
+  color: oklch(1 0 0 / 0.68);
+  margin-top: 10px;
+  text-transform: capitalize;
+}
+
+.pp-cta {
+  display: inline-block;
+  margin-top: 16px;
+  font-family: var(--sans);
+  font-size: 12px;
+  font-weight: 500;
+  color: #fff;
+  padding: 8px 18px;
+  border-radius: 999px;
+  background: oklch(1 0 0 / 0.14);
+  border: 1px solid oklch(1 0 0 / 0.18);
+  text-transform: capitalize;
+  transition: background 0.25s ease;
+}
+
+.proj-card:hover .pp-cta {
+  background: oklch(1 0 0 / 0.24);
+}
+
+.pp-badge {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 2;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #fff;
+  background: oklch(0.2 0.02 var(--h, 45) / 0.55);
+  border: 1px solid oklch(1 0 0 / 0.2);
+  padding: 5px 11px;
+  border-radius: 999px;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+/* --- overlapping info card --- */
+.proj-info {
+  position: relative;
+  z-index: 2;
+  margin: -54px 16px 0;
+  background: var(--bg-elev);
+  border: 1px solid var(--rule);
+  border-radius: 16px;
+  padding: 22px 24px 24px;
+  box-shadow: var(--shadow);
+  transition: border-color 0.3s ease;
+}
+
+.proj-card:hover .proj-info {
+  border-color: var(--ink-3);
+}
+
+.proj-info-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.proj-pill {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  padding: 7px 15px;
+  background: var(--bg);
+}
+
+.proj-arrow {
+  color: var(--ink-3);
+  display: inline-flex;
+  transition: color 0.25s ease, transform 0.25s ease;
+}
+
+.proj-card:hover .proj-arrow {
+  color: var(--accent);
+  transform: translate(3px, -3px);
+}
+
+.proj-info h3 {
+  font-family: var(--sans);
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  margin: 16px 0 8px;
+}
+
+.proj-info p {
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--ink-2);
+  margin: 0;
+  text-wrap: pretty;
+}
+
+.proj-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 16px;
+}
+
+.proj-stack span {
+  font-family: var(--mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--ink-3);
+  border: 1px solid var(--rule);
+  padding: 4px 9px;
+  border-radius: 999px;
+}
+
+/* --- "Preview" hint on card hover --- */
+.pp-expand {
+  position: absolute;
+  bottom: 14px;
+  right: 14px;
+  z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #fff;
+  background: oklch(0.2 0.02 var(--h, 45) / 0.5);
+  border: 1px solid oklch(1 0 0 / 0.22);
+  padding: 7px 12px;
+  border-radius: 999px;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  pointer-events: none;
+}
+
+.proj-card:not(.is-expanded):hover .pp-expand {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.proj-card.is-expanded .pp-expand {
+  display: none;
+}
+
+/* --- subtle dim behind the expanded card --- */
+.proj-dim {
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  background: oklch(0.07 0.01 60 / 0);
+  backdrop-filter: blur(0px);
+  -webkit-backdrop-filter: blur(0px);
+  opacity: 0;
+  pointer-events: none;
+  transition: background 0.55s ease, backdrop-filter 0.55s ease, opacity 0.55s ease;
+}
+
+.proj-dim.in {
+  background: oklch(0.07 0.01 60 / 0.55);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  opacity: 1;
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+/* --- expanded: preview becomes the left panel --- */
+.proj-card.is-expanded .proj-preview {
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  aspect-ratio: auto;
+  height: 100%;
+}
+
+/* --- expanded: info becomes the right detail column --- */
+.proj-card.is-expanded .proj-info {
+  margin: 0;
+  padding: clamp(28px, 4vw, 52px);
+  padding-top: clamp(44px, 5vw, 58px);
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: safe center;
+  align-items: flex-start;
+  scrollbar-width: none;
+  /* Firefox */
+  -ms-overflow-style: none;
+  /* IE/Edge */
+}
+
+.proj-card.is-expanded .proj-info::-webkit-scrollbar {
+  display: none;
+  /* Chrome/Safari */
+}
+
+.proj-card.is-expanded .proj-info h3 {
+  font-size: clamp(26px, 2.6vw, 40px);
+  letter-spacing: -0.025em;
+  line-height: 1.05;
+}
+
+.proj-card.is-expanded .proj-info p {
+  font-size: clamp(15px, 1.3vw, 18px);
+  line-height: 1.6;
+}
+
+.proj-card.is-expanded .proj-arrow {
+  display: none;
+}
+
+/* Extra detail (meta + CTA) exists only in the expanded state. */
+.proj-extra {
+  display: none;
+  width: 100%;
+}
+
+.proj-card.is-expanded .proj-extra {
+  display: block;
+  opacity: 0;
+  transform: translateY(14px);
+  animation: proj-extra-in 0.5s cubic-bezier(0.33, 1, 0.68, 1) 0.24s forwards;
+}
+
+@keyframes proj-extra-in {
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.po-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 5;
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  border: 1px solid oklch(1 0 0 / 0.22);
+  background: oklch(0.18 0.01 60 / 0.4);
+  color: #fff;
+  cursor: pointer;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.proj-card.is-expanded .po-close {
+  display: inline-flex;
+}
+
+.po-close:hover {
+  background: oklch(0.3 0.02 60 / 0.6);
+  transform: rotate(90deg);
+}
+
+.po-meta {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px 24px;
+  width: 100%;
+  margin: 22px 0 28px;
+  padding: 22px 0 0;
+  border-top: 1px solid var(--rule);
+}
+
+.po-meta>div {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.po-meta-stack {
+  grid-column: 1 / -1;
+}
+
+.po-meta dt {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  margin: 0;
+}
+
+.po-meta dd {
+  margin: 0;
+  font-family: var(--mono);
+  font-size: 14px;
+  color: var(--ink);
+}
+
+.po-meta dd .proj-stack {
+  margin-top: 0;
+}
+
+.po-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--mono);
+  font-size: 13px;
+  font-weight: 500;
+  padding: 15px 26px;
+  border-radius: 999px;
+  background: var(--ink);
+  color: var(--bg);
+  transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease;
+}
+
+.po-cta:hover {
+  background: var(--accent);
+  color: var(--accent-ink);
+  transform: translateY(-2px);
+}
+
+.po-cta svg {
+  transition: transform 0.25s ease;
+}
+
+.po-cta:hover svg {
+  transform: translate(2px, -2px);
+}
+
+@media (max-width: 820px) {
+  .proj-card.is-expanded {
+    grid-template-columns: 1fr;
+    grid-template-rows: 38% 1fr;
+  }
+
+  .proj-card.is-expanded .proj-info {
+    justify-content: flex-start;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .proj-card.is-expanded {
+    transition: none;
+  }
+
+  .proj-card.is-expanded .proj-extra {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+}
