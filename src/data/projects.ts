@@ -9,6 +9,7 @@ export const PROJECTS: Project[] = [
     href: "https://play.google.com/store/apps/details?id=com.AFG.internetspeedmeter",
     badge: "500K+ installs",
     year: "2022",
+    poster: "/assets/posters/bitvelo.png",
   },
   {
     title: "Open Solutions",
@@ -17,6 +18,7 @@ export const PROJECTS: Project[] = [
     stack: ["JS", "Firebase", "HTML/CSS"],
     href: "https://opensolutions.web.app/",
     year: "2024",
+    poster: "/assets/posters/open-solutions.png",
   },
   {
     title: "MARRS Bank",

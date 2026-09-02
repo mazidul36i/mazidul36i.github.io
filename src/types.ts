@@ -46,6 +46,8 @@ export interface Project {
   year: string;
   /** Optional reach/scale badge, e.g. "500K+ installs". */
   badge?: string;
+  /** Optional screenshot shown in the preview instead of the generated mock cover. */
+  poster?: string;
 }
 
 export interface StatCard {

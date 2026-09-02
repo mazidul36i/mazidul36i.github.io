@@ -81,7 +81,7 @@ a {
   margin: 16px 0 0;
   line-height: 1.5;
 
-  &not(.full-width) {
+  &:not(.full-width) {
     max-width: 56ch;
   }
 }

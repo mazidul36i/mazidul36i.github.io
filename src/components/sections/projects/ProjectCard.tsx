@@ -91,6 +91,7 @@ export function ProjectCard({
   const previewRef = useRef<HTMLDivElement>(null);
   const infoRef = useRef<HTMLDivElement>(null);
   const timer = useRef<number | undefined>(undefined);
+  const raf = useRef<number | undefined>(undefined);
   // Compact card-relative boxes of the two panels, captured on expand so the
   // collapse can animate them back without re-measuring the compact layout.
   const compactGeom = useRef<{ preview: Box; info: Box } | null>(null);
@@ -105,6 +106,7 @@ export function ProjectCard({
     const info = infoRef.current;
     if (!card || !cell || !preview || !info) return;
     clearTimeout(timer.current);
+    cancelAnimationFrame(raf.current ?? 0);
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
     if (active) {
@@ -118,6 +120,7 @@ export function ProjectCard({
 
       cell.style.height = `${from.height}px`; // freeze the slot so siblings hold
       setExpanded(true);
+      card.classList.remove("is-collapsing");
       card.classList.add("is-expanded");
       const to = expandedRect();
 
@@ -144,7 +147,7 @@ export function ProjectCard({
       placeChild(info, infoFrom, RADIUS_COMPACT);
       card.getBoundingClientRect(); // force the start frame
 
-      requestAnimationFrame(() => {
+      raf.current = requestAnimationFrame(() => {
         card.style.removeProperty("transition"); // fall back to the CSS transition
         setBox(card, to);
         preview.style.transition = CHILD_TRANSITION;
@@ -162,11 +165,13 @@ export function ProjectCard({
       if (!card.classList.contains("is-expanded")) return;
       const to = cell.getBoundingClientRect();
       const compact = compactGeom.current;
+      card.classList.add("is-collapsing");
       const finish = () => {
+        cancelAnimationFrame(raf.current ?? 0); // a starved frame must not re-pin
         clearBox(card);
         clearChild(preview);
         clearChild(info);
-        card.classList.remove("is-expanded");
+        card.classList.remove("is-expanded", "is-collapsing");
         cell.style.removeProperty("height");
         setExpanded(false);
       };
@@ -186,7 +191,7 @@ export function ProjectCard({
       placeChild(info, infoNow, RADIUS_EXPANDED);
       card.getBoundingClientRect(); // force the start frame
 
-      requestAnimationFrame(() => {
+      raf.current = requestAnimationFrame(() => {
         card.style.removeProperty("transition");
         setBox(card, to);
         preview.style.transition = CHILD_TRANSITION;
