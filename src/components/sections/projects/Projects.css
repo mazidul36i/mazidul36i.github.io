@@ -311,7 +311,7 @@
 .proj-arrow {
   color: var(--ink-3);
   display: inline-flex;
-  transition: color 0.25s ease, transform 0.25s ease;
+  transition: color 0.25s ease, transform 0.25s ease, opacity 0.3s ease;
 }
 
 .proj-card:hover .proj-arrow {
@@ -324,7 +324,13 @@
   font-size: 20px;
   font-weight: 500;
   letter-spacing: -0.01em;
+  line-height: 1.2;
   margin: 16px 0 8px;
+  /* Typography scales in step with the card's FLIP morph (same clock). */
+  transition:
+    font-size 0.62s cubic-bezier(0.65, 0, 0.35, 1),
+    line-height 0.62s cubic-bezier(0.65, 0, 0.35, 1),
+    letter-spacing 0.62s cubic-bezier(0.65, 0, 0.35, 1);
 }
 
 .proj-info p {
@@ -333,6 +339,7 @@
   color: var(--ink-2);
   margin: 0;
   text-wrap: pretty;
+  transition: font-size 0.62s cubic-bezier(0.65, 0, 0.35, 1), line-height 0.62s cubic-bezier(0.65, 0, 0.35, 1);
 }
 
 .proj-stack {
@@ -425,14 +432,15 @@
   padding: clamp(28px, 4vw, 52px);
   padding-top: clamp(44px, 5vw, 58px);
   background: transparent;
-  border: none;
+  /* Keep the 1px border (transparent) so border-color can fade rather than snap. */
+  border-color: transparent;
   border-radius: 0;
   box-shadow: none;
   overflow: auto;
   display: flex;
   flex-direction: column;
   justify-content: safe center;
-  align-items: flex-start;
+  align-items: stretch;
   scrollbar-width: none;
   /* Firefox */
   -ms-overflow-style: none;
@@ -456,7 +464,7 @@
 }
 
 .proj-card.is-expanded .proj-arrow {
-  display: none;
+  opacity: 0;
 }
 
 /* Extra detail (meta + CTA) exists only in the expanded state. */
@@ -496,11 +504,49 @@
   justify-content: center;
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  transition: background 0.2s ease, transform 0.2s ease;
+  transition: background 0.2s ease, transform 0.2s ease, opacity 0.2s ease;
 }
 
 .proj-card.is-expanded .po-close {
   display: inline-flex;
+}
+
+/* --- collapsing: hand the info panel its compact styling up front so padding,
+   type and chrome ease back over the morph instead of snapping when
+   `is-expanded` is finally removed. (`is-expanded` stays on during collapse so
+   the card keeps its fixed geometry; these rules sit later to win.) --- */
+.proj-card.is-collapsing .proj-info {
+  padding: 22px 24px 24px;
+  background: var(--bg-elev);
+  border-color: var(--rule);
+  box-shadow: var(--shadow);
+}
+
+.proj-card.is-collapsing .proj-info h3 {
+  font-size: 20px;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+
+.proj-card.is-collapsing .proj-info p {
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.proj-card.is-collapsing .proj-arrow {
+  opacity: 1;
+}
+
+.proj-card.is-collapsing .proj-extra {
+  animation: none;
+  opacity: 0;
+  transform: none;
+  transition: opacity 0.22s ease;
+}
+
+.proj-card.is-collapsing .po-close {
+  opacity: 0;
+  pointer-events: none;
 }
 
 .po-close:hover {
@@ -588,7 +634,10 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .proj-card.is-expanded {
+  .proj-card.is-expanded,
+  .proj-info,
+  .proj-info h3,
+  .proj-info p {
     transition: none;
   }
 

@@ -16,10 +16,15 @@ interface ProjectCardProps {
 
 const DURATION = 620;
 const EASE = "cubic-bezier(0.65, 0, 0.35, 1)";
-/** Transition used for the two interior panels while they reflow. */
-const CHILD_TRANSITION = ["top", "left", "width", "height", "border-radius"]
+const GEOMETRY = ["top", "left", "width", "height", "border-radius"];
+/** Surface styling (padding, chrome) eases on the same clock as the geometry. */
+const SURFACE = ["padding", "background-color", "border-color", "box-shadow"]
   .map((p) => `${p} ${DURATION}ms ${EASE}`)
   .join(", ");
+/** Transition used for the two interior panels while they reflow. */
+const CHILD_TRANSITION = GEOMETRY.map((p) => `${p} ${DURATION}ms ${EASE}`).join(", ") + ", " + SURFACE;
+/** Pins a panel instantly while its surface styling still eases. */
+const PIN_TRANSITION = GEOMETRY.map((p) => `${p} 0s`).join(", ") + ", " + SURFACE;
 const RADIUS_COMPACT = "16px";
 const RADIUS_EXPANDED = "0px"; // the card's own 24px clip supplies the outer rounding
 
@@ -141,8 +146,8 @@ export function ProjectCard({
       }
 
       setBox(card, from);
-      preview.style.transition = "none";
-      info.style.transition = "none";
+      preview.style.transition = PIN_TRANSITION;
+      info.style.transition = PIN_TRANSITION;
       placeChild(preview, previewFrom, RADIUS_COMPACT);
       placeChild(info, infoFrom, RADIUS_COMPACT);
       card.getBoundingClientRect(); // force the start frame
@@ -185,8 +190,8 @@ export function ProjectCard({
       const cardNow = card.getBoundingClientRect();
       const previewNow = relBox(preview.getBoundingClientRect(), cardNow);
       const infoNow = relBox(info.getBoundingClientRect(), cardNow);
-      preview.style.transition = "none";
-      info.style.transition = "none";
+      preview.style.transition = PIN_TRANSITION;
+      info.style.transition = PIN_TRANSITION;
       placeChild(preview, previewNow, RADIUS_EXPANDED);
       placeChild(info, infoNow, RADIUS_EXPANDED);
       card.getBoundingClientRect(); // force the start frame
