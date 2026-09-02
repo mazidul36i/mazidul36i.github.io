@@ -58,30 +58,7 @@ a {
   position: relative;
 }
 .section-head {
-  display: grid;
-  grid-template-columns: 200px 1fr;
-  gap: 48px;
   margin-bottom: 64px;
-  align-items: baseline;
-}
-.section-head--full {
-  grid-template-columns: 1fr;
-}
-@media (max-width: 720px) {
-  .section-head {
-    grid-template-columns: 1fr;
-    gap: 16px;
-  }
-}
-.section-num {
-  font-family: var(--mono);
-  font-size: 12px;
-  color: var(--ink-3);
-  letter-spacing: 0.06em;
-}
-.section-num .label {
-  text-transform: uppercase;
-  margin-left: 8px;
 }
 .section-title {
   font-family: var(--sans);

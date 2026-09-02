@@ -36,8 +36,6 @@ export function Projects() {
     <section className="section" id="projects">
       <div className="shell">
         <SectionHead
-          num="/04"
-          label="Side work"
           title={
             <>
               Things I've <span className="em">built</span> on the side.

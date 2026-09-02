@@ -7,8 +7,6 @@ export function Skills() {
     <section className="section" id="skills">
       <div className="shell">
         <SectionHead
-          num="/03"
-          label="Stack"
           title={
             <>
               The <span className="em">tools</span> I reach for.

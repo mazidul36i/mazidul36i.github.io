@@ -32,7 +32,7 @@ export function Contact({ profile }: { profile: Profile }) {
   return (
     <section className="section" id="contact">
       <div className="shell">
-        <SectionHead num="/05" label="Contact" title="Let's talk." />
+        <SectionHead title="Let's talk." />
 
         <div className="contact-grid">
           <div className="fade-up">

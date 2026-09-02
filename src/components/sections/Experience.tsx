@@ -23,8 +23,6 @@ export function Experience({ workSubtitle, highlightCount }: ExperienceProps) {
     <section className="section" id="work">
       <div className="shell">
         <SectionHead
-          num="/02"
-          label="Work"
           title={
             <>
               Where I've been <span className="em">shipping</span>.
