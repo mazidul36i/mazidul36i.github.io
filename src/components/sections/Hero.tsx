@@ -46,8 +46,9 @@ export function Hero({ profile, cards, headline }: HeroProps) {
             <span className="big">{headline}</span>
           </h1>
           <p className="spot-sub">
-            Backend engineer turning days of manual work into a single upload — shipping AI tooling,
-            data-quality engines &amp; integrations on Spring Boot, PostgreSQL and Elasticsearch.
+            Backend engineer building systems that scale - clean APIs, predictable data, and
+            architectures that survive growth. The stack changes (Spring Boot &amp; PostgreSQL
+            today, whatever tomorrow needs); the engineering doesn't.
           </p>
           <div className="spot-actions">
             <a href="#contact" onClick={scrollToId("contact")} className="spot-btn primary">

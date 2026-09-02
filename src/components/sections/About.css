@@ -21,3 +21,55 @@
   color: var(--ink);
   font-weight: 600;
 }
+
+/* ----------- right rail: working principles ----------- */
+.about-aside {
+  transition-delay: 0.15s;
+}
+.about-aside-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ink-3);
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--rule);
+}
+.about-principles {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.about-principles li {
+  display: grid;
+  grid-template-columns: 32px 1fr;
+  gap: 16px;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--rule-2);
+  align-items: start;
+}
+.about-principles .idx {
+  font-size: 11px;
+  color: var(--accent);
+  letter-spacing: 0.06em;
+  padding-top: 3px;
+}
+.about-principles h4 {
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  margin: 0 0 4px;
+}
+.about-principles p {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--ink-3);
+  margin: 0;
+  text-wrap: pretty;
+}
+.about-now {
+  font-size: 11px;
+  color: var(--ink-3);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding-top: 16px;
+}
