@@ -102,8 +102,11 @@ a {
   font-size: 17px;
   color: var(--ink-2);
   margin: 16px 0 0;
-  max-width: 56ch;
   line-height: 1.5;
+
+  &not(.full-width) {
+    max-width: 56ch;
+  }
 }
 
 /* ----------- custom cursor ----------- */

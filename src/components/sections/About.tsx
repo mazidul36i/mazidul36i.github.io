@@ -32,6 +32,7 @@ export function About() {
             </>
           }
           sub="From a Play Store app with half a million installs to enterprise data platforms — I like the parts of software that disappear into someone's day."
+          subClass="full-width"
         />
         <div className="about-grid">
           <div className="about-prose fade-up">

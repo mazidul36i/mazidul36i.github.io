@@ -9,10 +9,12 @@ interface SectionHeadProps {
   title: ReactNode;
   /** Optional supporting paragraph. */
   sub?: ReactNode;
+  /** Optional class to add to the section sub container. */
+  subClass?: string;
 }
 
 /** Shared two-column section header used across every section. */
-export function SectionHead({ num, label, title, sub }: SectionHeadProps) {
+export function SectionHead({ num, label, title, sub, subClass }: SectionHeadProps) {
   const full = num == null;
   return (
     <div className={"section-head fade-up" + (full ? " section-head--full" : "")}>
@@ -24,7 +26,7 @@ export function SectionHead({ num, label, title, sub }: SectionHeadProps) {
       )}
       <div>
         <h2 className="section-title">{title}</h2>
-        {sub && <p className="section-sub">{sub}</p>}
+        {sub && <p className={"section-sub " + subClass}>{sub}</p>}
       </div>
     </div>
   );
