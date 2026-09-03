@@ -23,7 +23,16 @@
   display: block;
   position: relative;
   cursor: pointer;
-  transition: transform 0.45s cubic-bezier(0.2, 0.7, 0.2, 1);
+  /* Surface is declared (transparent) here so it can fade in/out with the
+     morph instead of popping when `is-expanded` toggles. */
+  border-radius: 24px;
+  background: transparent;
+  box-shadow: none;
+  transition:
+    transform 0.45s cubic-bezier(0.2, 0.7, 0.2, 1),
+    background-color 0.62s cubic-bezier(0.65, 0, 0.35, 1),
+    box-shadow 0.62s cubic-bezier(0.65, 0, 0.35, 1),
+    border-radius 0.62s cubic-bezier(0.65, 0, 0.35, 1);
 }
 
 .proj-card:not(.is-expanded):hover {
@@ -38,15 +47,31 @@
   grid-template-columns: 1.12fr 0.88fr;
   overflow: hidden;
   background: var(--bg-elev);
-  border: 1px solid var(--rule);
   border-radius: 24px;
-  box-shadow: 0 50px 130px -34px oklch(0 0 0 / 0.72);
+  /* 1px ring stands in for a border so it interpolates with the shadow. */
+  box-shadow:
+    0 0 0 1px var(--rule),
+    0 50px 130px -34px oklch(0 0 0 / 0.72);
   transform: none;
   transition:
     top 0.62s cubic-bezier(0.65, 0, 0.35, 1),
     left 0.62s cubic-bezier(0.65, 0, 0.35, 1),
     width 0.62s cubic-bezier(0.65, 0, 0.35, 1),
-    height 0.62s cubic-bezier(0.65, 0, 0.35, 1);
+    height 0.62s cubic-bezier(0.65, 0, 0.35, 1),
+    transform 0.45s cubic-bezier(0.2, 0.7, 0.2, 1),
+    background-color 0.62s cubic-bezier(0.65, 0, 0.35, 1),
+    box-shadow 0.62s cubic-bezier(0.65, 0, 0.35, 1),
+    border-radius 0.62s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+/* Collapsing: fade the surface out and release the clip. The panels carry the
+   24px outer corners themselves (set inline by ProjectCard) so nothing pokes
+   out, and the info card's shadow no longer pops in when the clip is removed. */
+.proj-card.is-collapsing {
+  overflow: visible;
+  background: transparent;
+  box-shadow: none;
+  border-radius: 16px;
 }
 
 /* --- browser-mockup preview --- */
@@ -122,6 +147,9 @@
   display: grid;
   place-items: center;
   padding: 0;
+  /* Size container so the box below can express "16:9 within me" as plain
+     lengths (cqw/cqh) — lengths interpolate, `aspect-ratio`/`auto` do not. */
+  container-type: size;
   transition: padding 0.62s cubic-bezier(0.65, 0, 0.35, 1);
 }
 
@@ -132,6 +160,8 @@
   border-radius: 0;
   box-shadow: 0 0 0 0 oklch(0 0 0 / 0);
   transition:
+    width 0.62s cubic-bezier(0.65, 0, 0.35, 1),
+    height 0.62s cubic-bezier(0.65, 0, 0.35, 1),
     border-radius 0.62s cubic-bezier(0.65, 0, 0.35, 1),
     box-shadow 0.62s cubic-bezier(0.65, 0, 0.35, 1);
 }
@@ -152,17 +182,16 @@
 }
 
 /* Expanded: the panel is tall and narrow, so the page sits as a rounded 16:9
-   plate on the hued ground instead of being cropped to a sliver. At compact
-   size a 16:9 plate capped to the cover height is exactly the full fill, so
-   the switch itself is seamless — only the inset and radius animate. */
+   plate on the hued ground instead of being cropped to a sliver. The plate is
+   the largest 16:9 box that fits the (padded) frame, written as lengths so
+   width/height tween from/to the compact 100% fill along with the inset. */
 .proj-card.is-expanded .pp-shot-frame {
   padding: clamp(16px, 4%, 40px);
 }
 
 .proj-card.is-expanded .pp-shot-box {
-  height: auto;
-  max-height: 100%;
-  aspect-ratio: 16 / 9;
+  width: min(100cqw, calc(100cqh * 16 / 9));
+  height: min(100cqh, calc(100cqw * 9 / 16));
   border-radius: 12px;
   box-shadow: 0 24px 60px -18px oklch(0 0 0 / 0.6);
 }
@@ -177,6 +206,8 @@
 }
 
 .proj-card.is-collapsing .pp-shot-box {
+  width: 100%;
+  height: 100%;
   border-radius: 0;
   box-shadow: 0 0 0 0 oklch(0 0 0 / 0);
 }
@@ -431,7 +462,9 @@
   margin: 0;
   padding: clamp(28px, 4vw, 52px);
   padding-top: clamp(44px, 5vw, 58px);
-  background: transparent;
+  /* Stays opaque (same tone as the card) so its text never shows through
+     over the preview while the two panels cross mid-morph. */
+  background: var(--bg-elev);
   /* Keep the 1px border (transparent) so border-color can fade rather than snap. */
   border-color: transparent;
   border-radius: 0;
@@ -515,6 +548,10 @@
    type and chrome ease back over the morph instead of snapping when
    `is-expanded` is finally removed. (`is-expanded` stays on during collapse so
    the card keeps its fixed geometry; these rules sit later to win.) --- */
+.proj-card.is-collapsing .proj-preview {
+  box-shadow: var(--shadow);
+}
+
 .proj-card.is-collapsing .proj-info {
   padding: 22px 24px 24px;
   background: var(--bg-elev);
@@ -537,11 +574,20 @@
   opacity: 1;
 }
 
+/* A fresh keyframe animation, not `animation: none` + transition: dropping the
+   fill-forwards animation snaps opacity to 0 with no transition. */
 .proj-card.is-collapsing .proj-extra {
-  animation: none;
-  opacity: 0;
-  transform: none;
-  transition: opacity 0.22s ease;
+  animation: proj-extra-out 0.22s ease forwards;
+}
+
+@keyframes proj-extra-out {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
 }
 
 .proj-card.is-collapsing .po-close {
@@ -634,6 +680,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .proj-card,
   .proj-card.is-expanded,
   .proj-info,
   .proj-info h3,

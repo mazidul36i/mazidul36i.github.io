@@ -25,8 +25,16 @@ const SURFACE = ["padding", "background-color", "border-color", "box-shadow"]
 const CHILD_TRANSITION = GEOMETRY.map((p) => `${p} ${DURATION}ms ${EASE}`).join(", ") + ", " + SURFACE;
 /** Pins a panel instantly while its surface styling still eases. */
 const PIN_TRANSITION = GEOMETRY.map((p) => `${p} 0s`).join(", ") + ", " + SURFACE;
+/** Same idea for the card itself: snap geometry, keep its surface fading. */
+const CARD_PIN_TRANSITION =
+  GEOMETRY.map((p) => `${p} 0s`).join(", ") +
+  ", " +
+  ["background-color", "box-shadow", "border-radius", "transform"]
+    .map((p) => `${p} ${DURATION}ms ${EASE}`)
+    .join(", ");
 const RADIUS_COMPACT = "16px";
 const RADIUS_EXPANDED = "0px"; // the card's own 24px clip supplies the outer rounding
+const RADIUS_CARD = "24px"; // must match `.proj-card.is-expanded` in Projects.css
 
 interface Box {
   top: number;
@@ -134,7 +142,7 @@ export function ProjectCard({
 
       // Snap the card to its final size so the panels' expanded grid positions
       // can be measured, then rewind everything to the compact geometry.
-      card.style.transition = "none";
+      card.style.transition = CARD_PIN_TRANSITION;
       setBox(card, to);
       const cardTo = card.getBoundingClientRect();
       const previewTo = relBox(preview.getBoundingClientRect(), cardTo);
@@ -190,10 +198,16 @@ export function ProjectCard({
       const cardNow = card.getBoundingClientRect();
       const previewNow = relBox(preview.getBoundingClientRect(), cardNow);
       const infoNow = relBox(info.getBoundingClientRect(), cardNow);
+      // The card stops clipping while it collapses (see `.is-collapsing`), so
+      // each panel takes over the card's outer corners on its own outside edges.
+      const stacked = infoNow.top >= previewNow.top + previewNow.height - 1;
+      const r = RADIUS_CARD;
+      const previewRadius = stacked ? `${r} ${r} 0 0` : `${r} 0 0 ${r}`;
+      const infoRadius = stacked ? `0 0 ${r} ${r}` : `0 ${r} ${r} 0`;
       preview.style.transition = PIN_TRANSITION;
       info.style.transition = PIN_TRANSITION;
-      placeChild(preview, previewNow, RADIUS_EXPANDED);
-      placeChild(info, infoNow, RADIUS_EXPANDED);
+      placeChild(preview, previewNow, previewRadius);
+      placeChild(info, infoNow, infoRadius);
       card.getBoundingClientRect(); // force the start frame
 
       raf.current = requestAnimationFrame(() => {
