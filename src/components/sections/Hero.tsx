@@ -1,5 +1,6 @@
 import type { Profile, StatCard } from "../../types";
 import { scrollToId } from "../../lib/scroll";
+import { openAndDownloadResume } from "../../lib/resume";
 import { ArrowUpRight } from "../common/Icons";
 import "./Hero.css";
 
@@ -57,7 +58,13 @@ export function Hero({ profile, cards, headline }: HeroProps) {
             <a href="#projects" onClick={scrollToId("projects")} className="spot-btn ghost">
               See My Work
             </a>
-            <a href={profile.resume} target="_blank" rel="noreferrer" className="spot-btn link">
+            <a
+              href={profile.resume}
+              target="_blank"
+              rel="noreferrer"
+              onClick={openAndDownloadResume(profile.resume)}
+              className="spot-btn link"
+            >
               Resume
               <ArrowUpRight size={15} strokeWidth={2} />
             </a>
