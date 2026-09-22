@@ -1,7 +1,8 @@
-import type { ReactNode } from "react";
+import type { MouseEvent, ReactNode } from "react";
 import type { Profile } from "../../types";
 import { SectionHead } from "../common/SectionHead";
 import { ArrowUpRight, ArrowDown } from "../common/Icons";
+import { RESUME_FILENAME, openAndDownloadResume } from "../../lib/resume";
 import "./Contact.css";
 
 interface ContactLinkProps {
@@ -10,13 +11,15 @@ interface ContactLinkProps {
   href: string;
   external?: boolean;
   icon?: ReactNode;
+  onClick?: (e: MouseEvent) => void;
 }
 
-function ContactLink({ label, value, href, external, icon }: ContactLinkProps) {
+function ContactLink({ label, value, href, external, icon, onClick }: ContactLinkProps) {
   return (
     <a
       className="contact-link"
       href={href}
+      onClick={onClick}
       {...(external ? { target: "_blank", rel: "noreferrer" } : {})}
     >
       <div>
@@ -55,9 +58,10 @@ export function Contact({ profile }: { profile: Profile }) {
             />
             <ContactLink
               label="Resume"
-              value="Mazidul_Islam_Resume.pdf"
+              value={RESUME_FILENAME}
               href={profile.resume}
               external
+              onClick={openAndDownloadResume(profile.resume)}
               icon={<ArrowDown size={20} strokeWidth={1.5} />}
             />
           </div>
