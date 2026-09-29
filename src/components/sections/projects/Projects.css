@@ -431,7 +431,7 @@
   position: fixed;
   inset: 0;
   z-index: 300;
-  background: oklch(0.07 0.01 60 / 0);
+  background: oklch(0.07 0.01 260 / 0);
   backdrop-filter: blur(0px);
   -webkit-backdrop-filter: blur(0px);
   opacity: 0;
@@ -440,7 +440,7 @@
 }
 
 .proj-dim.in {
-  background: oklch(0.07 0.01 60 / 0.55);
+  background: oklch(0.07 0.01 260 / 0.55);
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
   opacity: 1;
@@ -529,7 +529,7 @@
   height: 40px;
   border-radius: 999px;
   border: 1px solid oklch(1 0 0 / 0.22);
-  background: oklch(0.18 0.01 60 / 0.4);
+  background: oklch(0.18 0.01 260 / 0.4);
   color: #fff;
   cursor: pointer;
   display: none;
@@ -596,7 +596,7 @@
 }
 
 .po-close:hover {
-  background: oklch(0.3 0.02 60 / 0.6);
+  background: oklch(0.3 0.02 260 / 0.6);
   transform: rotate(90deg);
 }
 
@@ -655,7 +655,7 @@
 }
 
 .po-cta:hover {
-  background: var(--accent);
+  background: var(--accent-strong);
   color: var(--accent-ink);
   transform: translateY(-2px);
 }

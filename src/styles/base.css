@@ -34,7 +34,7 @@ a {
 }
 
 ::selection {
-  background: var(--accent);
+  background: var(--accent-strong);
   color: var(--accent-ink);
 }
 
