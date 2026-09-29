@@ -11,9 +11,11 @@
   --ink-3: oklch(0.55 0.012 60);
   --rule: oklch(0.88 0.008 70);
   --rule-2: oklch(0.93 0.006 70);
-  --accent: oklch(0.62 0.16 45); /* terracotta */
-  --accent-ink: oklch(0.98 0.01 80);
-  --accent-soft: oklch(0.94 0.04 50);
+  --accent: oklch(0.55 0.2 260); /* electric blue */
+  --accent-strong: oklch(0.55 0.2 260);
+  --accent-fill: linear-gradient(180deg, oklch(0.64 0.2 258), oklch(0.55 0.22 262));
+  --accent-ink: oklch(0.99 0.004 255);
+  --accent-soft: oklch(0.94 0.03 260);
   --shadow: 0 1px 2px oklch(0.2 0.01 60 / 0.04), 0 8px 24px oklch(0.2 0.01 60 / 0.06);
 
   --serif: "Newsreader", "Iowan Old Style", "Apple Garamond", Georgia, serif;
@@ -22,15 +24,17 @@
 }
 
 [data-theme="dark"] {
-  --bg: #08090d;
-  --bg-elev: oklch(0.19 0.012 260);
+  --bg: oklch(0.165 0.022 262); /* hero navy — shared by every section */
+  --bg-elev: oklch(0.205 0.024 262);
   --ink: oklch(0.96 0.005 260);
   --ink-2: oklch(0.78 0.008 260);
   --ink-3: oklch(0.58 0.008 260);
-  --rule: oklch(0.3 0.012 260);
-  --rule-2: oklch(0.23 0.012 260);
-  --accent: oklch(0.74 0.14 45);
-  --accent-ink: oklch(0.16 0.01 60);
-  --accent-soft: oklch(0.3 0.06 45);
+  --rule: oklch(0.3 0.02 262);
+  --rule-2: oklch(0.24 0.02 262);
+  --accent: oklch(0.72 0.15 258); /* text, borders, dots — readable on --bg */
+  --accent-strong: oklch(0.55 0.22 262); /* solid fills behind --accent-ink */
+  --accent-fill: linear-gradient(180deg, oklch(0.64 0.2 258), oklch(0.55 0.22 262)); /* hero + nav buttons */
+  --accent-ink: oklch(0.99 0.004 255);
+  --accent-soft: oklch(0.3 0.08 262);
   --shadow: 0 1px 2px oklch(0 0 0 / 0.2), 0 8px 24px oklch(0 0 0 / 0.3);
 }

@@ -3,6 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script>
+    // Old GitHub Pages host → canonical domain (keeps path, query and hash)
+    if (location.hostname === "mazidul36i.github.io") {
+      location.replace("https://mazidul.com" + location.pathname + location.search + location.hash);
+    }
+  </script>
   <title>Mazidul Islam — Software Engineer</title>
   <meta name="description" content="Mazidul Islam — Software Engineer. Backend systems, AI tooling and data-quality engines on Spring Boot, PostgreSQL, Elasticsearch." />
   <link rel="icon" type="image/jpg" href="/assets/profile.jpg" />

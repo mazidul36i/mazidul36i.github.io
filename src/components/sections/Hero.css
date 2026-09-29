@@ -10,7 +10,7 @@
   justify-content: center;
   padding: 150px 0 90px;
   overflow: hidden;
-  background: oklch(0.145 0.01 260);
+  background: var(--bg);
   color: oklch(0.97 0.005 255);
 }
 .spot-bg {
@@ -20,6 +20,9 @@
   background:
     radial-gradient(60% 55% at 78% 42%, oklch(0.42 0.13 260 / 0.5), transparent 70%),
     radial-gradient(80% 70% at 50% 120%, oklch(0.3 0.08 260 / 0.5), transparent 70%);
+  /* fade the glow out before the hero's bottom edge so it hands off to --bg without a seam */
+  -webkit-mask-image: linear-gradient(180deg, #000 72%, transparent);
+  mask-image: linear-gradient(180deg, #000 72%, transparent);
   pointer-events: none;
 }
 .spot-grid {
@@ -85,7 +88,7 @@
 }
 .spot-btn.primary {
   color: #fff;
-  background: linear-gradient(180deg, oklch(0.64 0.2 258), oklch(0.54 0.22 262));
+  background: var(--accent-fill);
   box-shadow: 0 14px 34px -12px oklch(0.55 0.22 262 / 0.95), inset 0 1px 0 oklch(1 0 0 / 0.25);
 }
 .spot-btn.primary:hover {
